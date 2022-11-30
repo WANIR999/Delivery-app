@@ -20,9 +20,9 @@ router.get('/logout',verification.verify(["manager","admin","client","livreur"])
 router.get('/confirmation/:email_token',verfemail.confirm)
 router.get('/forgetconfirm/:token',verfemail.forgetconfirm)
 
-router.get('/allUsers',verification.verify(["manager","client"]),user.GetAll)
+router.get('/allUsers',user.GetAll)
 
-router.post('/switchtoliv',user.switchto)
+router.post('/switchtoliv',verification.verify(["manager"]),user.switchto)
 
 router.use(errorHandler)
 
