@@ -14,7 +14,7 @@ router.post('/login',tryCatch(verification.postverif),tryCatch(user.login))
 
 router.post('/forgotpassword',tryCatch(user.forgotpassword))
 
-router.post('/resetpassword',verification.verify(["manager","admin","client","livreur"]),tryCatch(user.resetpassword))
+router.post('/resetpassword',verification.verify(["manager","client","livreur"]),tryCatch(user.resetpassword))
 
 router.get('/logout',verification.verify(["manager","admin","client","livreur"]),tryCatch(user.logout))
 router.get('/confirmation/:email_token',verfemail.confirm)
