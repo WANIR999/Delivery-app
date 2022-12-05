@@ -1,9 +1,10 @@
 import React from 'react';
-import "./app.css"
+import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Foget_password from './components/Forget_password';
+import Confirmpassword from './components/Confirmpassword';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Home from './components/Home';
@@ -67,8 +68,9 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='forgetpassword' element={<Foget_password/>}/>
-        </Route>
+        <Route path='forgetconfirm' element={<Confirmpassword/>}/>
 
+        </Route>
 
    
              {/* global route */}

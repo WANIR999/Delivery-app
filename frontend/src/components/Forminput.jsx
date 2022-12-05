@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./frminpt.css";
 
@@ -25,6 +26,5 @@ const FormInput = (props) => {
     </div>
   );
 };
-
 
 export default FormInput;
