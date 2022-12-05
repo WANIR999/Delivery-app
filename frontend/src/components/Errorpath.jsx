@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 
+
 const Error = () => {
   return (
     <div className="App bg-danger fill" >
