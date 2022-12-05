@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
 const ls=require('local-storage')
 const jwt=require('jsonwebtoken')
-const dotenv=require('dotenv')
+const dotenv=require('dotenv').config()
 const User=require('../../model/user')
 const bcrypt=require('bcryptjs')
 
