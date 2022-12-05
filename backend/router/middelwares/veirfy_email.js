@@ -17,7 +17,7 @@ function main() {
     secure: true,
     auth: {
       user: 'mohammedwanir67@gmail.com', 
-      pass: 'jxmgbkafeztunkxd', 
+      pass:process.env.NODEMAILER_PASSWORD, 
     },
   });
   let info = {
@@ -42,7 +42,7 @@ function forget() {
     secure: true,
     auth: {
       user: 'mohammedwanir67@gmail.com', 
-      pass: 'jxmgbkafeztunkxd', 
+      pass: process.env.NODEMAILER_PASSWORD, 
     },
   });
 
