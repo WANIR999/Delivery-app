@@ -16,12 +16,12 @@ function main() {
     port: 465,
     secure: true,
     auth: {
-      user: 'mohammedwanir67@gmail.com', 
+      user: process.env.NODEMAILER_EMAIL, 
       pass:process.env.NODEMAILER_PASSWORD, 
     },
   });
   let info = {
-    from: '"mohammed" <mohammedwanir67@gmail.com>', 
+    from: '"mohammed" <'+process.env.NODEMAILER_EMAIL+'>', 
     to:ls('email'),
     subject: "email verification ✔",  
     html: '<b>Hello we just got a request to create an account with this email, please verify in this link <a href="'+url+'">confirm it</a></b>',
@@ -41,14 +41,14 @@ function forget() {
     port: 465,
     secure: true,
     auth: {
-      user: 'mohammedwanir67@gmail.com', 
+      user: process.env.NODEMAILER_EMAIL, 
       pass: process.env.NODEMAILER_PASSWORD, 
     },
   });
 
 
   let info = {
-    from: '"mohammed" <mohammedwanir67@gmail.com>', 
+    from: '"mohammed" <'+process.env.NODEMAILER_EMAIL+'>',
     to:ls('forget').email,
     subject: " password confirmation ✔",  
     html: '<b>Hello we just got a request to change your password to '+ls('forget').password+', if it was you please  <a href="'+url+'">confirm it</a></b>',
