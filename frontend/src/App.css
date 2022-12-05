@@ -1,11 +1,11 @@
-/* 
-jaune/moutard:#f0c300
-jaune doree:#efd807
-noir:#2c2d34 
-bleu-noir:#2f1b41 / #11144c
-orange:#f2910a
-*/
-
+:root {
+  --jauneMoutard-color: #f0c300;
+  --jauneDoree-color:#efd807;
+  --noir-color:#2c2d34;
+  --orange-color:#f2910a;
+  --bleuNoir-one-color:#2f1b41;
+  --bleuNoir-two-color:#11144c;
+}
 
 .App {
     display: flex;
