@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+  
+
 }
 
 input{
@@ -13,15 +15,18 @@ input{
 }
 
 label{
-    font-size: 12px;
-    color: gray;
+    font-size: 18px;
+    color: var(--bs-gray-900);
+    font-weight: bold;
 }
-
 span{
-    font-size: 12px;
+    font-size: 16px;
     padding: 3px;
     color: red;
     display: none;
+    font-family: monospace;
+    font-weight: bold;
+
 }
 
 input:invalid[focused="true"]{
