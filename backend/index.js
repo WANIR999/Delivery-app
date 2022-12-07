@@ -8,7 +8,6 @@ const commands= require('./router/routes/CommandRoutes')
 const users= require('./router/routes/UserRoutes')
 const plats= require('./router/routes/PlatRoutes')
 const payments= require('./router/routes/PaymentRoutes')
-const payments= require('./router/routes/PaymentRoutes')
 
 app.use(cors())
 app.use(express.json())
