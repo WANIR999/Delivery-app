@@ -9,10 +9,10 @@ const PlatsSchema= new mongoose.Schema({
         ref:'categories'
    },
    Composent:{
-        type:Text,
+        type:String,
    },
    image:{
-        type:Image,
+        type:String,
    },
    Quantite:{
         type:Number, 
