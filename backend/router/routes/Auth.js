@@ -2,7 +2,6 @@
 const router= require('express').Router();
 const user=require('../../controller/auth')
 const verification=require('../middelwares/token_verification')
-const localstorage = require('local-storage');
 const verfemail=require('../middelwares/veirfy_email')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
 const errorHandler=require('../middelwares/errorHandler/errorhandler')

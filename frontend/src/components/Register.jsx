@@ -99,8 +99,8 @@ const Register = () => {
         ))}
         <button>Submit</button>
         <div className="w-100 d-flex justify-content-between align-items-center pb-3">
-        <Link to="/login"  className="btn text-secondary" >sign-in?</Link>
-        <Link to="/forgetpassword"  className="btn text-secondary" >forget ur password?</Link>
+        <Link to="/login"  className="btn text-secondary fw-bold fs-6" >Sign-in?</Link>
+        <Link to="/forgetpassword"  className="btn text-secondary fw-bold fs-6" >Forget ur password ?</Link>
         </div>
       </form>
     </div>

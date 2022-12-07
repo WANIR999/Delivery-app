@@ -75,8 +75,8 @@ const Forget = () => {
         ))}
         <button>Submit</button>
         <div className="w-100 d-flex justify-content-between align-items-center pb-3">
-        <Link to="/register"  className="btn text-secondary" >sign-up?</Link>
-        <Link to="/login"  className="btn text-secondary" >sign-in?</Link>
+        <Link to="/register"  className="btn text-secondary fw-bold fs-6" >sign-up?</Link>
+        <Link to="/login"  className="btn text-secondary fw-bold fs-6" >sign-in?</Link>
         </div>
       </form>
     </div>
