@@ -106,4 +106,4 @@ const encrpttoken= async (req,res)=>{
 }
 
 
-module.exports={register,login,resetpassword,logout,forgotpassword,Find,switchto,decrpttoken,encrpttoken}
+module.exports={register,login,resetpassword,logout,forgotpassword,switchto,decrpttoken,encrpttoken}

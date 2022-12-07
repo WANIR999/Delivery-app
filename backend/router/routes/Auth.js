@@ -1,6 +1,7 @@
 
 const router= require('express').Router();
 const user=require('../../controller/auth')
+
 const verification=require('../middelwares/token_verification')
 const verfemail=require('../middelwares/veirfy_email')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
@@ -18,7 +19,7 @@ router.get('/logout',verification.verify(["manager","admin","client","livreur"])
 router.get('/confirmation/:email_token',verfemail.confirm)
 router.get('/forgetconfirm/:token',verfemail.forgetconfirm)
 
-router.get('/allUsers',user.Find)
+// router.get('/allUsers',user.Find)
 
 router.post('/switchtoliv',verification.verify(["manager"]),user.switchto)
 
