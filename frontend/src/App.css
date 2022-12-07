@@ -14,12 +14,15 @@
     justify-content: center;
     height: 90vh;
   }
+
   .fill{
     height: 100vh !important;
   }
+
   ::-webkit-scrollbar {
     display: none;
 }
+
   .auth{
     background-color:#2c2d34 ;
   }
@@ -55,9 +58,11 @@
       margin-top: 15px;
       margin-bottom: 30px;
   }
+
 .mfsize{
    font-size: 70%;
 }
+
   .tbl{
     height: 80% !important;
     width: 70% !important;

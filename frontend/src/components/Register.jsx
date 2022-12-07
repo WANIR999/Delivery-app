@@ -26,6 +26,7 @@ const Register = () => {
       pattern: "^[A-Za-z0-9]{3,16}$",
       required: true,
     },
+
     {
       id: 2,
       name: "email",
@@ -35,6 +36,7 @@ const Register = () => {
       label: "Email",
       required: true,
     },
+
     {
       id: 3,
       name: "password",
@@ -46,6 +48,7 @@ const Register = () => {
       pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
       required: true,
     },
+       
     {
       id: 4,
       name: "confirmPassword",

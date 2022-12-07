@@ -1,3 +1,4 @@
+
 import React from 'react';
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -16,7 +17,6 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
-
 
 function App() {
   return (
