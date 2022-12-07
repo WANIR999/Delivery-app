@@ -1,28 +1,24 @@
 const mongoose=require("mongoose")
 
 const CommandsSchema= new mongoose.Schema({
-   Produid_id:{
-        type:String,
-        required:true
+   plat_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'plats'
    },
    Client_id:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'users'
    },
    Livreur_id:{
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'user'
+        ref: 'users'
    },
    Quantité:{
         type:Number,
         required:true
    },
-   Montant_total :{
+   Prix:{
     type:Number,
-    required:true
-   },
-   Status_du_command:{
-    type:String,
     required:true
    },
    Date :{
