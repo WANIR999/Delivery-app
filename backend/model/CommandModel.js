@@ -10,8 +10,8 @@ const CommandsSchema= new mongoose.Schema({
         ref: 'user'
    },
    Livreur_id:{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'user'
+     type: mongoose.Schema.Types.ObjectId, 
+     ref: 'user'
    },
    Quantité:{
         type:Number,
@@ -21,7 +21,7 @@ const CommandsSchema= new mongoose.Schema({
     type:Number,
     required:true
    },
-   Status_du_command:{
+   Achat_id:{
     type:String,
     required:true
    },
