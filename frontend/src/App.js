@@ -1,3 +1,4 @@
+
 import React from 'react';
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.css";
@@ -19,7 +20,6 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
-
 
 function App() {
   return (
