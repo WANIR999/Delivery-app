@@ -16,6 +16,7 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
+import Forget_pass_confirm from './components/Forget_pass_confirm';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='forgetpassword' element={<Foget_password/>}/>
+        <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         </Route>
 
 

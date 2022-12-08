@@ -73,7 +73,7 @@ const forgotpassword=  async(req,res)=>{
       localstorage('forget',forget)
       confirmation.forget()
     res.json({
-        msg:'updated',
+        msg:'done',
         })
 }
 

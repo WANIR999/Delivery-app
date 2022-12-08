@@ -3,7 +3,8 @@ const ls=require('local-storage')
 const jwt=require('jsonwebtoken')
 const dotenv=require('dotenv').config()
 const User=require('../../model/user')
-const bcrypt=require('bcryptjs')
+const bcrypt=require('bcryptjs');
+const { findOne } = require("../../model/user");
 
 
 function main() {
@@ -31,7 +32,7 @@ function main() {
 
 function forget() {
     const forget_data=jwt.sign({data:ls('forget')},process.env.SECRET)
-    const url='http://localhost:8080/api/auth/forgetconfirm/'+forget_data;
+    const url='http://localhost:3000/forget_password_confirmation/'+forget_data;
     
     // console.log(ls('forget'))
   let transporter = nodemailer.createTransport({
@@ -63,11 +64,23 @@ async function confirm(req,res){
    if(user)  res.redirect('http://localhost:3000/login');
 }
 
-async function forgetconfirm(req,res){
-  const tkn= await jwt.verify(req.params.token,process.env.SECRET)
-  req.data=tkn
-  const user= await User.findOne({email:tkn.data})
-   if(!user) throw Error('something is wrong user not found')
-    res.send(user);
+
+async function forgetconfirmdata(req,res){
+const {body}=req
+const tkn= await jwt.verify(body.token,process.env.SECRET)
+req.data=tkn
+res.json(tkn.data)
 }
-module.exports= {main,confirm,forget,forgetconfirm}
+
+async function forgetpasschange(req,res){
+  const {body}=req
+  const pass= await bcrypt.hash(body.password,10)
+  const user= await User.findOneAndUpdate({email:body.email},{password:pass})
+   if(!user) throw Error('something is wrong user not found')
+    res.json({
+     data:user,
+     msg:"done"
+    });
+}
+
+module.exports= {main,confirm,forget,forgetconfirmdata,forgetpasschange}

@@ -13,11 +13,13 @@ router.post('/login',tryCatch(verification.postverif),tryCatch(user.login))
 
 router.post('/forgotpassword',tryCatch(user.forgotpassword))
 
+router.post('/forgetpasschange',tryCatch(verfemail.forgetpasschange))
+
 router.post('/resetpassword',verification.verify(["manager","client","livreur"]),tryCatch(user.resetpassword))
 
 router.get('/logout',verification.verify(["manager","admin","client","livreur"]),tryCatch(user.logout))
 router.get('/confirmation/:email_token',verfemail.confirm)
-router.get('/forgetconfirm/:token',verfemail.forgetconfirm)
+router.post('/forgetconfirmdata',verfemail.forgetconfirmdata)
 
 router.get('/allUsers',user.GetAll)
 
