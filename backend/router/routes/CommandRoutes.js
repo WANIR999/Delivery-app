@@ -3,11 +3,11 @@ const {AjouterCommand,UpdateCommand,DeletCommand,AllCommand}=require("../../cont
 const verification=require('../middelwares/token_verification')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
 const errorHandler=require('../middelwares/errorHandler/errorhandler')
-
-router.post('/ajouterCommand',AjouterCommand)
-router.get('/updateCommand',UpdateCommand)
-router.get('/deletCommand',DeletCommand)
-router.get('/allCommand',AllCommand)
+tryCatch()
+router.post('/ajouterCommand',tryCatch(AjouterCommand))
+router.put('/updateCommand',tryCatch(UpdateCommand))
+router.delete('/deletCommand/:id',tryCatch(DeletCommand))
+router.get('/allCommand',tryCatch(AllCommand))
 
 
 router.use(errorHandler)

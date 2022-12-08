@@ -3,23 +3,29 @@ const mongoose=require("mongoose")
 const CommandsSchema= new mongoose.Schema({
      plat_id:{
           type:mongoose.Schema.Types.ObjectId,
-          ref:'plats'
+          ref:'plats',
+          required:true
      },
      Client_id:{
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'user'
+          ref: 'user',
+          required:true
+
      },
      Livreur_id:{
           type: mongoose.Schema.Types.ObjectId, 
-          ref: 'user'
+          ref: 'user',
+          required:true
+
      },
      Quantité:{
           type:Number,
-          required:true
+          required:true,
+
      },
      Prix:{
       type:Number,
-      required:true
+     //  required:true
      },
      Status_du_command:{
       type:String,
