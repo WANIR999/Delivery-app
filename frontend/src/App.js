@@ -1,4 +1,3 @@
-
 import React from 'react';
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -17,7 +16,7 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
-import Achats from './components/Achats';
+import Achat from './components/Achats'
 
 function App() {
   return (
@@ -46,7 +45,7 @@ function App() {
 
         <Route path='auth' element={<Navbar/>}>
         <Route path='livreur/home' element={<Home/>}/>
-        <Route path='/Achats' element={<Achats/>}/>
+        <Route path='livreur/achats' element={<Achat/>}/>
         </Route>
 
         </Route>

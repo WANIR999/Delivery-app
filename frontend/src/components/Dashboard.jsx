@@ -22,7 +22,7 @@ const update= async (a)=>{
     const id=a.target.value
    const updates= await axios.post('http://localhost:8080/api/auth/switchtoliv',{id})
   if( updates.data.msg) window.location.reload(false);
-//    console.log(updates.data)
+   console.log(updates.data)
 }
 
   return (

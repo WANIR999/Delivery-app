@@ -10,6 +10,7 @@ const GetAllachats= async(req,res)=>{
         path: 'payment_id',  
         model:Payment
     },
+
       {
         path: 'command_id', 
         model:Command
