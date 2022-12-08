@@ -1,12 +1,15 @@
 
 import React from 'react';
 import "./App.css"
+import "bootstrap/dist/css/bootstrap.css";
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
 import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
+import Client from './components/Client';
 import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
@@ -76,6 +79,7 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
+       <Route path='/client' element={<Client/>}/>
       </Routes>
     </Router>
       
