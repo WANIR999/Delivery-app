@@ -1,5 +1,6 @@
 const command=require('../model/CommandModel')
 const env=require('dotenv')
+const { findOneAndUpdate } = require('../model/CommandModel')
 
 const AjouterCommand=async(req,res)=>{
     const {body} = req
@@ -14,18 +15,25 @@ const AjouterCommand=async(req,res)=>{
 
     }      
 }
-const UpdateCommand=(req,res)=>{
-res.send("update command")
+const UpdateCommand=async(req,res)=>{
+  const updatecommand=await command.updateOne({_id:req.params.id},{$set:req.body})
+  if(updatecommand){
+    res.send("update command is succss")
+    }else{
+    throw Error('Command not update')
+  
+}
 }
 
 const DeletCommand=async(req,res)=>{
   const deletcommand=await command.findOneAndDelete({
-    id:req.params.id
+    _id:req.params.id
   })
   if(deletcommand){
     res.send("suppresion sucees")
   }else{
-     res.send('problem to  suppresion command')
+    throw Error('problem to  suppresion command')
+
 
   }
   
