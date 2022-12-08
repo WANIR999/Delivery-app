@@ -30,8 +30,6 @@ function main() {
 }
 
 function forget() {
-
- 
     const forget_data=jwt.sign({data:ls('forget')},process.env.SECRET)
     const url='http://localhost:8080/api/auth/forgetconfirm/'+forget_data;
     
@@ -49,9 +47,9 @@ function forget() {
 
   let info = {
     from: '"mohammed" <'+process.env.NODEMAILER_EMAIL+'>',
-    to:ls('forget').email,
+    to:ls('forget'),
     subject: " password confirmation ✔",  
-    html: '<b>Hello we just got a request to change your password to '+ls('forget').password+', if it was you please  <a href="'+url+'">confirm it</a></b>',
+    html: '<b>Hello we just got a request to change your password , if it was you please  <a href="'+url+'">confirm it</a></b>',
   };
   transporter.sendMail(info)
 }
@@ -68,7 +66,8 @@ async function confirm(req,res){
 async function forgetconfirm(req,res){
   const tkn= await jwt.verify(req.params.token,process.env.SECRET)
   req.data=tkn
-  const user= await User.findOneAndUpdate({email:req.data.data.email},{password:req.data.data.hash})
-   if(user) res.redirect('http://localhost:3000/login');
+  const user= await User.findOne({email:tkn.data})
+   if(!user) throw Error('something is wrong user not found')
+    res.send(user);
 }
 module.exports= {main,confirm,forget,forgetconfirm}
