@@ -8,6 +8,8 @@ const commands= require('./router/routes/CommandRoutes')
 const users= require('./router/routes/UserRoutes')
 const plats= require('./router/routes/PlatRoutes')
 const payments= require('./router/routes/PaymentRoutes')
+const categorie= require('./router/routes/CategorieRoutes')
+const Achat= require('./router/routes/AchatRoutes')
 
 app.use(cors())
 app.use(express.json())

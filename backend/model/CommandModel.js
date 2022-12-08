@@ -28,5 +28,5 @@ const CommandsSchema= new mongoose.Schema({
 
 
 })
-const Command=mongoose.model("command",CommandsSchema)
+const Command=mongoose.model('Command',CommandsSchema)
 module.exports=Command
