@@ -1,3 +1,4 @@
+
 const express=require('express')
 const app=express()
 const db=require('./config/db')
@@ -20,11 +21,6 @@ app.use('/api/plat',plats)
 app.use('/api/payment',payments)
 app.use('/api/categorie',categorie)
 app.use('/api/achat',Achat)
-
-
-
-
-
 
 app.listen(8080);
 

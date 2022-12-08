@@ -23,6 +23,7 @@ const Login = () => {
       label: "Email",
       required: true,
     },
+
     {
       id: 2,
       name: "password",
@@ -57,7 +58,6 @@ const Login = () => {
     }catch(error){
         seterrmsg(error.msg)
     }
-
   };
 
   const onChange = (e) => {

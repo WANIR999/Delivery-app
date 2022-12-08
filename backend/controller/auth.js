@@ -1,16 +1,10 @@
+
 const User = require('../model/user');
 const bcrypt=require('bcryptjs')
 const localstorage = require('local-storage');
 const jwt=require('jsonwebtoken')
 const dotenv=require('dotenv')
 const confirmation=require('../router/middelwares/veirfy_email')
-
-
-
-const GetAll= async(req,res)=>{
- const user= await User.find()
-  res.json(user)
-}
 
 const register=  async (req,res,next)=>{
     const {body}=req
@@ -26,8 +20,8 @@ const register=  async (req,res,next)=>{
     res.json({msg:"created",
         data:creat
     })
-
 }
+
 const login= async (req,res)=>{
     const {body}=req
 
@@ -107,4 +101,4 @@ const encrpttoken= async (req,res)=>{
 }
 
 
-module.exports={register,login,resetpassword,logout,forgotpassword,GetAll,switchto,decrpttoken,encrpttoken}
+module.exports={register,login,resetpassword,logout,forgotpassword,switchto,decrpttoken,encrpttoken}
