@@ -8,5 +8,5 @@ const paySchema= new mongoose.Schema({
         type:Number,
    },
 })
-const Payment=mongoose.model("Payment",paySchema)
+const Payment=mongoose.model('Payment',paySchema)
 module.exports=Payment

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./frminpt.css";
-
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
   const { label,labelclassName, errorMessage, onChange, id, ...inputProps } = props;
@@ -25,6 +24,4 @@ const FormInput = (props) => {
     </div>
   );
 };
-
-
 export default FormInput;
