@@ -4,7 +4,7 @@ const verification=require('../middelwares/token_verification')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
 const errorHandler=require('../middelwares/errorHandler/errorhandler')
 
-router.get('/ajouterCommand',AjouterCommand)
+router.post('/ajouterCommand',AjouterCommand)
 router.get('/updateCommand',UpdateCommand)
 router.get('/deletCommand',DeletCommand)
 router.get('/allCommand',AllCommand)
