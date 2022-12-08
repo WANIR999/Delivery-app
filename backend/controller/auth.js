@@ -60,18 +60,13 @@ const resetpassword= async (req,res)=>{
 }
 const forgotpassword=  async(req,res)=>{
     const {body}=req
-    const forget={
-        email:body.email,
-        password:body.password,
-    }
+    const forget=body.email;
     const user= await User.findOne({email:body.email})
     if(!user) throw Error('user not found')
-     const pass= await bcrypt.hash(body.password,10)
-      forget.hash=pass
       localstorage('forget',forget)
       confirmation.forget()
     res.json({
-        msg:'updated',
+        msg:'done',
         })
 }
 

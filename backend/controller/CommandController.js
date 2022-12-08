@@ -1,9 +1,21 @@
-const commandModel=require('../model/CommandModel')
+const command=require('../model/CommandModel')
 const env=require('dotenv')
 
-const AjouterCommand=(req,res)=>{
-res.send("ajouter command")
+const AjouterCommand=async(req,res)=>{
+        const {body} = req
+        const new_command=new command({
+          ...body
+        })
+        const saveCommand=await new_command.save();
+        try {
+          res.send(new_command)
+        } catch (error) {
+            res.send(error)
 
+        }
+      
+      
+      
 }
 const UpdateCommand=(req,res)=>{
 res.send("update command")

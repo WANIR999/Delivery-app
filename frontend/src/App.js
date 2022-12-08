@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
+import Client from './components/Client';
 import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
@@ -16,6 +17,7 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
+import Forget_pass_confirm from './components/Forget_pass_confirm';
 import Achat from './components/Achats'
 
 function App() {
@@ -68,6 +70,7 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='forgetpassword' element={<Foget_password/>}/>
+        <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         </Route>
 
 
@@ -75,6 +78,7 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
+       <Route path='/client' element={<Client/>}/>
       </Routes>
     </Router>
       
