@@ -3,14 +3,16 @@ const mongoose=require("mongoose")
 const achatSchema= new mongoose.Schema({
    payment_id:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:'Commands'
+    ref:'Payment'
    },
+
    command_id:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Command'
    },
    statu:{
         type:Boolean,
    },
 })
-const Achat=mongoose.model("Achat",achatSchema)
+const Achat=mongoose.model('Achat',achatSchema)
 module.exports=Achat
