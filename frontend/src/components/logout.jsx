@@ -7,7 +7,6 @@ const Logout = () => {
   const onClick = async() => {
     const log= await axios.get('http://localhost:8080/api/auth/logout')
     localStorage.removeItem('token')
-    localStorage.removeItem('role')
    navigate('/login')
   };
 
