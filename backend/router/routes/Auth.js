@@ -15,12 +15,11 @@ router.get('/logout',verification.verify(["manager","admin","client","livreur"])
 router.get('/confirmation/:email_token',verfemail.confirm)
 router.post('/forgetconfirmdata',verfemail.forgetconfirmdata)
 
-<<<<<<< HEAD
+
 router.get('/allUsers',user.GetAll)
 router.post('/decrypt',user.decrpttoken)
-=======
 // router.get('/allUsers',user.Find)
->>>>>>> 7cfa748cd1aae7262473d6f363ecccaa73fe1157
+
 
 router.post('/switchtoliv',verification.verify(["manager"]),user.switchto)
 

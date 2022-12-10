@@ -78,12 +78,7 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
-<<<<<<< HEAD
-
-
-=======
        <Route path='/client' element={<Client/>}/>
->>>>>>> 7cfa748cd1aae7262473d6f363ecccaa73fe1157
       </Routes>
     </Router>
       
