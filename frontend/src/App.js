@@ -52,7 +52,6 @@ function App() {
 
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
-
         <Route path='auth' element={<Navbar/>}>
         <Route path='manager/home' element={<Dashboard/>}/>
 
@@ -76,6 +75,8 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
+
+
       </Routes>
     </Router>
       

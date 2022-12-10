@@ -22,6 +22,7 @@ router.get('/confirmation/:email_token',verfemail.confirm)
 router.post('/forgetconfirmdata',verfemail.forgetconfirmdata)
 
 router.get('/allUsers',user.GetAll)
+router.post('/decrypt',user.decrpttoken)
 
 router.post('/switchtoliv',verification.verify(["manager"]),user.switchto)
 

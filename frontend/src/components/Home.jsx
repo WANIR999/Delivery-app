@@ -1,10 +1,10 @@
-import "../App.css";
+
 
 
 const Home = () => {
   return (
     <div>
-  
+  home
     </div>
   );
 };

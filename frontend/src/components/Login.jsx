@@ -44,13 +44,9 @@ const Login = () => {
     }
     try{
      const user= await axios.post('http://localhost:8080/api/auth/login',{...body})
-     console.log(user.data)
      if(user.data.msg){
-      localStorage.setItem('role',user.data.data.role)
       localStorage.setItem('token',user.data.token)
-      localStorage.setItem('name',user.data.data.name)
-      localStorage.setItem('email',user.data.data.email)
-      navigate('/auth/'+localStorage.getItem('role')+'/home')
+      navigate('/auth/'+user.data.data.role+'/home')
     }
     if( user.data.errmsg) seterrmsg(user.data.errmsg)
    
