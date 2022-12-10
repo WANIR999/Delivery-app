@@ -87,10 +87,10 @@ const switchto= async (req,res)=>{
 }
 
 const decrpttoken= async (req,res)=>{
-   const {token}=req.params
+   const {token}=req.body
    const tokn=jwt.verify(token,process.env.SECRET)
-   req.data=tokn
-   res.json({data:req.data.data})
+//    req.data=tokn
+   res.json(tokn.email)
 }
 
 const encrpttoken= async (req,res)=>{
