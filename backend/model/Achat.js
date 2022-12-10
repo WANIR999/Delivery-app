@@ -1,4 +1,3 @@
-
 const mongoose=require("mongoose")
 const achatSchema= new mongoose.Schema({
    payment_id:{
@@ -10,10 +9,10 @@ const achatSchema= new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Command'
    },
+
    statu:{
      type:Number,
 },
- 
 })
 const Achat=mongoose.model('Achat',achatSchema)
 module.exports=Achat

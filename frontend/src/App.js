@@ -18,7 +18,7 @@ import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
 import Forget_pass_confirm from './components/Forget_pass_confirm';
-import Achat from './components/Achats'
+import Achat from './components/Livreur'
 
 function App() {
   return (

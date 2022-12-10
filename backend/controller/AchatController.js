@@ -10,7 +10,6 @@ const GetAllachats= async(req,res)=>{
         path: 'payment_id',  
         model:Payment
     },
-
       {
         path: 'command_id', 
         model:Command
@@ -34,6 +33,7 @@ const GetAllachats= async(req,res)=>{
       }else{
         res.send('not updated')
       }
+      
    }
   
    module.exports= {GetAllachats,Updatestatus}
