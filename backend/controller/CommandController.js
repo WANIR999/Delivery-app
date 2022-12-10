@@ -1,6 +1,7 @@
 const command=require('../model/CommandModel')
+const client=require('../model/user')
 const env=require('dotenv')
-const { findOneAndUpdate } = require('../model/CommandModel')
+const { findOneAndUpdate, findOne } = require('../model/CommandModel')
 
 const AjouterCommand=async(req,res)=>{
     const {body} = req
@@ -46,10 +47,27 @@ const AllCommand=async(req,res)=>{
     throw Error('problem to get all data')
   }
 }
+const commandByClient=async(req,res)=>{
+  const checkuser=await client.findOne({_id:req.params.id})
+  if(checkuser){
+  let idusers=checkuser.id
+  const checkCommand=await command.findOne({Client_id:idusers})
+    if(checkCommand){
+      res.send(checkCommand)
+    }else{
+      throw Error('Sorry vous avez pas de command') 
+    }
+  }else{
+    throw Error('problem client not existe ')
+
+  }
+ 
+}
 
 module.exports={
     AjouterCommand,
     UpdateCommand,
     DeletCommand,
-    AllCommand
+    AllCommand,
+    commandByClient
 }
