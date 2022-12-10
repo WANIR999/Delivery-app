@@ -33,7 +33,7 @@ const GetAllachats= async(req,res)=>{
       }else{
         res.send('not updated')
       }
-      
+
    }
   
    module.exports= {GetAllachats,Updatestatus}
