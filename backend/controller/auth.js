@@ -23,8 +23,7 @@ const register=  async (req,res,next)=>{
 }
 
 const login= async (req,res)=>{
-    const {body}=req
-
+   const {body}=req
    const email = await User.findOne({email:body.email})
    if(!email) throw Error('email not found')
    if(email.confirmation!=true) throw Error('anactivated account')

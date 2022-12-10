@@ -3,17 +3,16 @@ import { useState, useEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-
-
 const Dashboard = () => {
     const navigate=useNavigate()
     const [values,setvalues]=useState([])
     const up =useRef()
+
 const data= async ()=>{
     const users= await axios.get('http://localhost:8080/api/auth/allUsers')
    setvalues(users.data)
    }
+
 useEffect(()=>{
     data();
 },[])
@@ -22,7 +21,7 @@ const update= async (a)=>{
     const id=a.target.value
    const updates= await axios.post('http://localhost:8080/api/auth/switchtoliv',{id})
   if( updates.data.msg) window.location.reload(false);
-//    console.log(updates.data)
+   console.log(updates.data)
 }
 
   return (
