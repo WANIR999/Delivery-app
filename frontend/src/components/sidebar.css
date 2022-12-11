@@ -1,0 +1,11 @@
+.sidebox{
+    width: 170px;
+    height: 550px;
+    margin-left:1%;
+    border-radius: 20px;
+    background-color: #455d7a;
+}
+
+.hover:hover {
+    color: gold !important;
+  }

@@ -33,7 +33,7 @@ const ban= async (a)=>{
 
   return (
     <div className="App auth">
-        <div className="container d-flex flex-column justify-content-start tblw">
+        <div className="container d-flex flex-column justify-content-start tblw  ms-5">
         <h2><Link to="/auth/manager/livreur/add"  className="text-secondary" ><i class="bi bi-person-fill-add"></i></Link></h2>
         <div className="tbl bg-white">
         <table className="table ">

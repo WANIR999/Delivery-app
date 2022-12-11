@@ -7,7 +7,6 @@ const PaymentList= () => {
     const navigate=useNavigate()
     const [values,setvalues]=useState([])
     const up =useRef()
-
 const data= async ()=>{
     const users= await axios.get('http://localhost:8080/api/payment/allpayments')
    setvalues(users.data)
@@ -27,7 +26,7 @@ const ban= async (a)=>{
   return (
     <div className="App auth">
         <div className="container d-flex flex-column justify-content-start tblw">
-        <h2><Link to="/auth/manager/categorie/add"  className="text-secondary" ><i class="bi bi-plus-circle-fill"></i></Link></h2>
+        <h2>Payments</h2>
         <div className="tbl bg-white">
         <table className="table ">
         <thead>

@@ -23,6 +23,7 @@ import LivreurAdd from './components/LivreurAdd';
 import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
+import SideBar from './components/SideBar';
 
 
 
@@ -62,7 +63,8 @@ function App() {
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
         <Route path='auth' element={<Navbar/>}>
-        <Route path='manager/home' element={<Dashboard/>}/>
+        <Route path='manager/home' element={<Home/>}/>
+        <Route path='manager/users' element={<Dashboard/>}/>
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
@@ -86,6 +88,7 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
+       <Route path='sid' element={<SideBar/>}/>
        <Route path='*' element={<Error/>}/>
       </Routes>
     </Router>
