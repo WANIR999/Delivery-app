@@ -10,7 +10,6 @@ const Forget = () => {
   const [msg,setmsg]=useState(false)
   const [values, setValues] = useState({
     email: "",
-    password: "",
   });
 
   const inputs = [
@@ -23,29 +22,16 @@ const Forget = () => {
       label: "Email",
       required: true,
     },
-    {
-      id: 2,
-      name: "password",
-      type: "password",
-      placeholder: "Password",
-      errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
-      label: "Password",
-      pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-      required: true,
-    },
   ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const body={
       email:values.email,
-      password:values.password,
     }
     try{
      const user= await axios.post('http://localhost:8080/api/auth/forgotpassword',{...body})
-     console.log(user.data.data)
-     if(user.data.msg) navigate('/login')
+     if(user.data.msg) window.location.replace('http://mail.google.com/mail/'+body.email)
      if(user.data.errmsg) seterrmsg(user.data.errmsg)
     }catch(error){
         seterrmsg(error.msg)

@@ -23,8 +23,7 @@ const register=  async (req,res,next)=>{
 }
 
 const login= async (req,res)=>{
-    const {body}=req
-
+   const {body}=req
    const email = await User.findOne({email:body.email})
    if(!email) throw Error('email not found')
    if(email.confirmation!=true) throw Error('anactivated account')
@@ -61,18 +60,13 @@ const resetpassword= async (req,res)=>{
 }
 const forgotpassword=  async(req,res)=>{
     const {body}=req
-    const forget={
-        email:body.email,
-        password:body.password,
-    }
+    const forget=body.email;
     const user= await User.findOne({email:body.email})
     if(!user) throw Error('user not found')
-     const pass= await bcrypt.hash(body.password,10)
-      forget.hash=pass
       localstorage('forget',forget)
       confirmation.forget()
     res.json({
-        msg:'updated',
+        msg:'done',
         })
 }
 
@@ -93,10 +87,10 @@ const switchto= async (req,res)=>{
 }
 
 const decrpttoken= async (req,res)=>{
-   const {token}=req.params
+   const {token}=req.body
    const tokn=jwt.verify(token,process.env.SECRET)
-   req.data=tokn
-   res.json({data:req.data.data})
+//    req.data=tokn
+   res.json(tokn.email)
 }
 
 const encrpttoken= async (req,res)=>{

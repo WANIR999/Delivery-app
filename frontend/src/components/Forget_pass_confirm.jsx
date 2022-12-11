@@ -1,56 +1,54 @@
 import { useState } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import "../App.css";
 import FormInput from "./Forminput";
-import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
 
-const Login = () => {
+const Forget_pass_confirm = () => {
   const navigate=useNavigate()
   const [errmsg,seterrmsg]=useState(false)
   const [msg,setmsg]=useState(false)
+  const {token}= useParams()
   const [values, setValues] = useState({
-    email: "",
     password: "",
   });
 
   const inputs = [
     {
-      id: 1,
-      name: "email",
-      type: "email",
-      placeholder: "Email",
-      errorMessage: "It should be a valid email address!",
-      label: "Email",
-      required: true,
-    },
-
-    {
-      id: 2,
-      name: "password",
-      type: "password",
-      placeholder: "Password",
-      errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
-      label: "Password",
-      // pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
-      required: true,
-    },
+        id: 1,
+        name: "password",
+        type: "password",
+        placeholder: "Password",
+        errorMessage:
+          "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+        label: "Password",
+        pattern: `^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$`,
+        required: true,
+      },
+      {
+        id: 2,
+        name: "confirmPassword",
+        type: "password",
+        placeholder: "Confirm Password",
+        errorMessage: "Passwords don't match!",
+        label: "Confirm Password",
+        pattern: values.password,
+        required: true,
+      },
   ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const user= await axios.post('http://localhost:8080/api/auth/forgetconfirmdata',{token:token})
+    const email= user.data
     const body={
-      email:values.email,
-      password:values.password,
+    email:email,
+    password:values.password,
     }
     try{
-     const user= await axios.post('http://localhost:8080/api/auth/login',{...body})
-     if(user.data.msg){
-      localStorage.setItem('token',user.data.token)
-      navigate('/auth/'+user.data.data.role+'/home')
-    }
-    if( user.data.errmsg) seterrmsg(user.data.errmsg)
-   
+     const user= await axios.post('http://localhost:8080/api/auth/forgetpasschange',{...body})
+     if(user.data.msg) navigate('/login')
+     if(user.data.errmsg) seterrmsg(user.data.errmsg)
     }catch(error){
         seterrmsg(error.msg)
     }
@@ -59,11 +57,11 @@ const Login = () => {
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-  
+
   return (
     <div className="App auth fill">
       <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
+        <h1>Forget password</h1>
         {errmsg ? (
           <div className="alert alert-danger text-center" role="alert">{errmsg}</div>
         ):msg? (
@@ -80,11 +78,11 @@ const Login = () => {
         <button>Submit</button>
         <div className="w-100 d-flex justify-content-between align-items-center pb-3">
         <Link to="/register"  className="btn text-secondary fw-bold fs-6" >sign-up?</Link>
-        <Link to="/forgetpassword"  className="btn text-secondary fw-bold fs-6" >forget ur password?</Link>
+        <Link to="/login"  className="btn text-secondary fw-bold fs-6" >sign-in?</Link>
         </div>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Forget_pass_confirm;

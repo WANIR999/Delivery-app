@@ -1,8 +1,5 @@
-
 import React from 'react';
 import "./App.css"
-import "bootstrap/dist/css/bootstrap.css";
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -20,6 +17,8 @@ import NoauthRoutes from './privateroutes_component.js/NoauthRoutes';
 import ClientRoutes from './privateroutes_component.js/clientPrivateRoutes';
 import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
+import Forget_pass_confirm from './components/Forget_pass_confirm';
+import Achat from './components/Livreur'
 
 function App() {
   return (
@@ -48,13 +47,13 @@ function App() {
 
         <Route path='auth' element={<Navbar/>}>
         <Route path='livreur/home' element={<Home/>}/>
+        <Route path='livreur/achats' element={<Achat/>}/>
         </Route>
 
         </Route>
 
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
-
         <Route path='auth' element={<Navbar/>}>
         <Route path='manager/home' element={<Dashboard/>}/>
 
@@ -70,6 +69,7 @@ function App() {
         <Route path='/' element={<Login/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='forgetpassword' element={<Foget_password/>}/>
+        <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         </Route>
 
 
