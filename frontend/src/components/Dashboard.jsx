@@ -27,7 +27,7 @@ const update= async (a)=>{
 const ban= async (a)=>{
     a.preventDefault()
     const id=a.target.value
-   const updates= await axios.post('http://localhost:8080/api/auth/switchtoliv',{id})
+   const updates= await axios.post('http://localhost:8080/api/user/Ban',{id})
   if( updates.data.msg) window.location.reload(false);
 }
 
@@ -44,7 +44,7 @@ const ban= async (a)=>{
             <th scope="col" >role</th>
             <th scope="col" >status</th>
             <th scope="col" >switch it</th>
-            <th scope="col" >ban it</th>
+            <th scope="col" >de/ban it</th>
             </tr>
         </thead>
         <tbody >
@@ -55,7 +55,7 @@ const ban= async (a)=>{
                     <td>{e.name}</td>
                     <td>{e.email}</td>
                     <td>{e.role}</td>
-                    <td>{e.confirmation? "confirmed":"not confirmed"}</td>
+                    <td>{(e.confirmation && !e.baned)?"confirmed":(e.confirmation && e.baned)?"baned":(!e.confirmation)?"not confirmed":"-"}</td>
                         <td>
                         <button type="submit"  value={e._id}  onClick={update} className="btn btn-primary w-25 h-25 "></button>
                         </td>
