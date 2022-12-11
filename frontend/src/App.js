@@ -22,6 +22,11 @@ import Achat from './components/Livreur'
 import LivreurAdd from './components/LivreurAdd';
 import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
+import PaymentList from './components/Paymendisplay';
+
+
+
+
 function App() {
   return (
     <Router>
@@ -61,6 +66,7 @@ function App() {
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
+        <Route path='manager/payment/list' element={<PaymentList/>}/>
         </Route>
         
         </Route>
