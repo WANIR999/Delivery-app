@@ -21,7 +21,7 @@ import Forget_pass_confirm from './components/Forget_pass_confirm';
 import Achat from './components/Livreur'
 import LivreurAdd from './components/LivreurAdd';
 import CatAdd from './components/CategorieAdd';
-
+import CategoriesList from './components/Catdisplay';
 function App() {
   return (
     <Router>
@@ -60,6 +60,7 @@ function App() {
         <Route path='manager/home' element={<Dashboard/>}/>
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
+        <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         </Route>
         
         </Route>
@@ -79,7 +80,6 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
-    
        <Route path='*' element={<Error/>}/>
       </Routes>
     </Router>

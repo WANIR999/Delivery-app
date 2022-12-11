@@ -33,10 +33,7 @@ const CatAdd = () => {
     }
     try{
      const user= await axios.post('http://localhost:8080/api/categorie/create',{...body})
-     if(user.data.msg) {
-     const role= await axios.post('http://localhost:8080/api/auth/decrypt',{token:localStorage.getItem('token')})
-     navigate('/auth/'+role.data.role+'/home')
-    }
+     if(user.data.msg) navigate('/test')
      if(user.data.errmsg) seterrmsg(user.data.errmsg)
     }catch(error){
         seterrmsg(error.msg)

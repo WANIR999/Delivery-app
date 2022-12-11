@@ -1,7 +1,7 @@
 const Categorie= require('../model/Categorie')
 
 const GetAllcategories= async(req,res)=>{
-    const categories= await categorie.find()
+    const categories= await Categorie.find()
      res.json(categories)
    }
 
@@ -14,9 +14,9 @@ const GetAllcategories= async(req,res)=>{
     })
 }
    const RemoveCat=  async (req,res,next)=>{
-    const {id}=req.params
+    const {id}=req.body
     const rem= await Categorie.findOneAndRemove({_id:id})
-    if(!rem) throw Error('Categorie not created')
+    if(!rem) throw Error('Categorie not removed')
     res.json({msg:"removed"})
 }
 

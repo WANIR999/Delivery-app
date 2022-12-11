@@ -1,9 +1,8 @@
 import {Outlet, Link} from "react-router-dom";
 import { useState ,useEffect } from "react";
 import axios from "axios";
-import Logout from "./logout";
 
-const Navbar = () => {
+const SideBar = () => {
     const [role,setRole]=useState("")
     const data= async ()=>{
      const user= await axios.post('http://localhost:8080/api/auth/decrypt',{token:localStorage.getItem('token')})
@@ -13,7 +12,6 @@ const Navbar = () => {
      data()
     },[])
     const homeurl="/auth/"+role+"/home"
-    const reseturl="/auth/"+role+"/resetpassword"
     return (
        <div>
        
@@ -21,4 +19,4 @@ const Navbar = () => {
     );
   };
   
-  export default Navbar;
+  export default SideBar;
