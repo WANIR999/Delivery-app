@@ -29,13 +29,23 @@ const GetAllUsers= async(req,res)=>{
 
 const Ban= async (req,res)=>{
   const {id}=req.body
-  const data= await User.findOneAndUpdate({_id:id}, {baned:true})
-  if(!data) throw Error('can not ban') 
+  const test= await User.findOne({_id:id})
+if(test.baned==true){
+ const data= await User.findOneAndUpdate({_id:id},{baned:false})
+ if(!data) throw Error('unban not executed')
+ res.json({
+  msg:"unbaned",
+  data:data
+ })
+}else if(test.baned==false){
+  const data= await User.findOneAndUpdate({_id:id},{baned:true})
+  if(!data) throw Error('unban not executed')
   res.json({
-   msg:"Baned",
-   id:id,
-   data:data,
-})
+   msg:"baned",
+   data:data
+  })
+}
+  
 }
 
    module.exports= {GetAllUsers,CreateLiv,Ban}
