@@ -18,17 +18,17 @@ useEffect(()=>{
 },[])
 
 const update= async (a)=>{
+    a.preventDefault()
     const id=a.target.value
    const updates= await axios.post('http://localhost:8080/api/auth/switchtoliv',{id})
   if( updates.data.msg) window.location.reload(false);
-   console.log(updates.data)
 }
 
   return (
-    <div className="App">
+    <div className="App auth">
         <div className="container d-flex flex-column justify-content-start">
-        <h2><Link to="/client"  className="text-secondary" ><i class="bi bi-person-fill-add"></i></Link></h2>
-        <div className="tbl">
+        <h2><Link to="/auth/manager/livreur/add"  className="text-secondary" ><i class="bi bi-person-fill-add"></i></Link></h2>
+        <div className="tbl bg-white">
         <table className="table ">
         <thead>
             <tr>
@@ -37,6 +37,7 @@ const update= async (a)=>{
             <th scope="col" >role</th>
             <th scope="col" >status</th>
             <th scope="col" >switch it</th>
+            <th scope="col" >ban it</th>
             </tr>
         </thead>
         <tbody >
@@ -49,9 +50,11 @@ const update= async (a)=>{
                     <td>{e.role}</td>
                     <td>{e.confirmation? "confirmed":"not confirmed"}</td>
                         <td>
-                        <button type="submit"  value={e._id}  onClick={update} className="w-25 h-25 "></button>
+                        <button type="submit"  value={e._id}  onClick={update} className="btn btn-primary w-25 h-25 "></button>
                         </td>
-                        <td></td>
+                        <td>
+                        <button type="submit"  value={e._id}  className=" btn btn-danger w-25 h-25 "></button>
+                        </td>
                     </tr>
                   
             ))
