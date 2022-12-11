@@ -6,7 +6,7 @@ const errorHandler=require('../middelwares/errorHandler/errorhandler')
 
 router.get('/allUsers',GetAllUsers)
 router.post('/create',tryCatch(CreateLiv))
-router.get('/ban',tryCatch(Ban))
+router.get('/Ban',tryCatch(Ban))
 
 router.use(errorHandler)
 

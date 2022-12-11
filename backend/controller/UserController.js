@@ -32,7 +32,7 @@ const Ban= async (req,res)=>{
   const data= await User.findOneAndUpdate({_id:id}, {baned:true})
   if(!data) throw Error('can not ban') 
   res.json({
-   msg:"baned",
+   msg:"Baned",
    id:id,
    data:data,
 })
