@@ -26,7 +26,7 @@ const login= async (req,res)=>{
    const {body}=req
    const email = await User.findOne({email:body.email})
    if(!email) throw Error('email not found')
-   if(email.confirmation!=true) throw Error('anactivated account')
+   if(email.confirmation!=true || email.baned!=false) throw Error('anactivated or baned account')
 
    const password=await bcrypt.compare(body.password,email.password)
    if(!password) throw Error('password not valid')

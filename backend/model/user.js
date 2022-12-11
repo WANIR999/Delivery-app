@@ -18,6 +18,10 @@ const Userschema= new mongoose.Schema({
         type:String,
        
     },
+    baned:{
+        type:Boolean,
+        default:false
+    },
     confirmation:{
         type:Boolean,
         default:false
