@@ -19,6 +19,7 @@ import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
 import Forget_pass_confirm from './components/Forget_pass_confirm';
 import Achat from './components/Livreur'
+import LivreurAdd from './components/LivreurAdd';
 
 function App() {
   return (
@@ -77,7 +78,7 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
-       <Route path='/client' element={<Client/>}/>
+       <Route path='/client' element={<LivreurAdd/>}/>
       </Routes>
     </Router>
       
