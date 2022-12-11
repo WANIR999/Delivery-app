@@ -22,7 +22,10 @@
   ::-webkit-scrollbar {
     display: none;
 }
-
+.tblw{
+  height: 500px !important; 
+  width: 900px !important;
+}
   .auth{
     background-color:#e3e3e3 ;
   }
@@ -67,10 +70,16 @@
     height: 80% !important;
     width: 100% !important;
     overflow-y: scroll !important;
+    overflow-x: scroll !important;
     border: 1px solid gray;
     border-radius: 20px;
   }
-
+.minimize{
+  margin: 2px;
+  padding: 0;
+  width: 30px !important;
+  height: 30px !important;
+}
   .pdashbor{
     cursor: pointer
 }
