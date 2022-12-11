@@ -1,6 +1,6 @@
 import "../App.css";
 import { useState, useEffect,useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const Dashboard = () => {
@@ -26,15 +26,17 @@ const update= async (a)=>{
 
   return (
     <div className="App">
-        <div className="container tbl">
+        <div className="container d-flex flex-column justify-content-start">
+        <h2><Link to="/client"  className="text-secondary" ><i class="bi bi-person-fill-add"></i></Link></h2>
+        <div className="tbl">
         <table className="table ">
         <thead>
             <tr>
             <th scope="col">name</th>
-            <th scope="col">email</th>
-            <th scope="col">role</th>
-            <th scope="col">status</th>
-            <th scope="col">switch it</th>
+            <th scope="col" >email</th>
+            <th scope="col" >role</th>
+            <th scope="col" >status</th>
+            <th scope="col" >switch it</th>
             </tr>
         </thead>
         <tbody >
@@ -46,9 +48,10 @@ const update= async (a)=>{
                     <td>{e.email}</td>
                     <td>{e.role}</td>
                     <td>{e.confirmation? "confirmed":"not confirmed"}</td>
-                        <td className="d-flex justify-content-center align-items-center">
-                        <button type="submit"  value={e._id}  onClick={update} className="d-flex justify-content-center align-items-center h-25 w-50"></button>
+                        <td>
+                        <button type="submit"  value={e._id}  onClick={update} className="w-25 h-25 "></button>
                         </td>
+                        <td></td>
                     </tr>
                   
             ))
@@ -56,6 +59,7 @@ const update= async (a)=>{
         </tbody>
         </table>
 
+        </div>
         </div>
        
     </div>
