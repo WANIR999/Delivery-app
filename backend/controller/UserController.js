@@ -27,5 +27,15 @@ const GetAllUsers= async(req,res)=>{
     })
 }
 
+const Ban= async (req,res)=>{
+  const {id}=req.body
+  const data= await User.findOneAndUpdate({_id:id}, {baned:true})
+  if(!data) throw Error('can not ban') 
+  res.json({
+   msg:"baned",
+   id:id,
+   data:data,
+})
+}
 
-   module.exports= {GetAllUsers,CreateLiv}
+   module.exports= {GetAllUsers,CreateLiv,Ban}

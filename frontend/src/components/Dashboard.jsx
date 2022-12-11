@@ -24,6 +24,13 @@ const update= async (a)=>{
   if( updates.data.msg) window.location.reload(false);
 }
 
+const ban= async (a)=>{
+    a.preventDefault()
+    const id=a.target.value
+   const updates= await axios.post('http://localhost:8080/api/auth/switchtoliv',{id})
+  if( updates.data.msg) window.location.reload(false);
+}
+
   return (
     <div className="App auth">
         <div className="container d-flex flex-column justify-content-start">
@@ -53,7 +60,7 @@ const update= async (a)=>{
                         <button type="submit"  value={e._id}  onClick={update} className="btn btn-primary w-25 h-25 "></button>
                         </td>
                         <td>
-                        <button type="submit"  value={e._id}  className=" btn btn-danger w-25 h-25 "></button>
+                        <button type="submit"  value={e._id} onClick={ban} className=" btn btn-danger w-25 h-25 "></button>
                         </td>
                     </tr>
                   
