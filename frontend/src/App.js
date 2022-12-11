@@ -20,6 +20,7 @@ import ManagerRoutes from './privateroutes_component.js/managerRoutes';
 import Forget_pass_confirm from './components/Forget_pass_confirm';
 import Achat from './components/Livreur'
 import LivreurAdd from './components/LivreurAdd';
+import CatAdd from './components/CategorieAdd';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
         <Route path='auth' element={<Navbar/>}>
         <Route path='manager/home' element={<Dashboard/>}/>
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
+        <Route path='manager/categorie/add' element={<CatAdd/>}/>
         </Route>
         
         </Route>
@@ -77,6 +79,7 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
+    
        <Route path='*' element={<Error/>}/>
       </Routes>
     </Router>
