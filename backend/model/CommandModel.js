@@ -31,6 +31,10 @@ const CommandsSchema= new mongoose.Schema({
       type:String,
       required:true
      },
+     date_Command :{
+     type : Date, 
+     default: Date.now 
+}
 
 })
 const Command=mongoose.model("command",CommandsSchema)

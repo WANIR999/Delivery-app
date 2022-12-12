@@ -7,6 +7,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
+import Command from './components/Command';
 import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
@@ -37,7 +38,7 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
-        <Route path='client/home' element={<Plats/>}/>
+        <Route path='client/home' element={<Client/>}/>
         </Route>
 
         </Route>
@@ -77,7 +78,9 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
-       <Route path='/client' element={<Client/>}/>
+       <Route path='Command' element={<Command/>}/>
+
+       {/* <Route path='/client' element={<Client/>}/> */}
       </Routes>
     </Router>
       

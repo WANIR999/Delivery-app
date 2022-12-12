@@ -11,12 +11,12 @@ const bgg={'color':'white'}
 
 const Client=()=>{
 
-   const [commanClient,setcommanClient]=useState([])
-   const id_Client=localStorage.getItem("token")
+   const [Commands,setcommanClient]=useState([])
+   
    const ClientCommand= async()=>{
-      const CommandClient=await axios.get(`http://localhost:8080/api/command/commandClient/${id_Client}`)
-      setcommanClient(CommandClient.data)
-      console.log(id_Client._id)
+      const commands=await axios.get('http://localhost:8080/api/command/allCommand')
+      setcommanClient(commands.data)
+      console.log(commands)
 
 
    }
@@ -46,18 +46,17 @@ return(
                                             </thead>
                                             <tbody>
                                               {
-                                            //  console.log(commanClient)
-
-                                            //     commanClient.map((e)=>(
-                                            //        <tr key={e._id}>
-                                            //        <td>{e.plat_id.name}</td>
-                                            //        <td>{e.Quantité}</td>
-                                            //        <td>{e.Prix}</td>
-                                            //        <td>{e.Status_du_command}</td>
-                                            //        <td>{e.date_Command}</td>
+                                       
+                                       Commands.map((e)=>(
+                                                   <tr key={e._id}>
+                                                   <td>{e.plat_id.name}</td>
+                                                   <td>{e.Quantité}</td>
+                                                   <td>{e.Prix}</td>
+                                                   <td>{e.Status_du_command}</td>
+                                                   <td>{e.date_Command}</td>
                                                   
-                                            //    </tr>
-                                            //    ))
+                                               </tr>
+                                               ))
                                               }
                                             </tbody>
                                         </Table>

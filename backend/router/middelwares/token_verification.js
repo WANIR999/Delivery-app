@@ -26,6 +26,21 @@ function postverif(req,res,next){
   if(localstorage('token')) throw Error('you are loged in!!')
   next()
 }
+// get id pour clirntaffichage
+function getid(req,res,next){
+  if(localstorage('token')){
+    const token=jwt.verify(localstorage('token'),process.env.SECRET)
+         if(token){
+          req.id=token  
+          res.json(req.id) 
+        }else{
+          res.send("erroor token") 
+
+        }
+  }
+
+  next()
+}
 
 
 
@@ -34,4 +49,4 @@ function postverif(req,res,next){
 
 
 
-module.exports= {verify,postverif}
+module.exports= {verify,postverif,getid}
