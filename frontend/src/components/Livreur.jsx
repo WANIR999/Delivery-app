@@ -12,6 +12,7 @@ const [formData,setvalues]=useState([])
      console.log(achats)
   }
 
+  
 useEffect(()=>{
   getachat();
   },[])
