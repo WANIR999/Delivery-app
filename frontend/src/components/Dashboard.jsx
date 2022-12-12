@@ -65,7 +65,7 @@ const ban= async (a)=>{
                         <button type="submit"  value={e._id} onClick={ban} className=" btn btn-danger w-25 h-25 "></button>
                         </td>
                     </tr>
-                  
+                     
             ))
         }
         </tbody>

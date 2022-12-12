@@ -1,3 +1,4 @@
+
 import React from 'react';
 import "./App.css"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -54,8 +55,7 @@ function App() {
         <Route element={<LivreurRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
-        <Route path='livreur/home' element={<Home/>}/>
-        <Route path='livreur/achats' element={<Achat/>}/>
+        <Route path='livreur/home' element={<Achat/>}/>
         </Route>
 
         </Route>

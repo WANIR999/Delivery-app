@@ -11,7 +11,7 @@ const achatSchema= new mongoose.Schema({
    },
 
    statu:{
-     type:Number,
+     type:String,
 },
 })
 const Achat=mongoose.model('Achat',achatSchema)

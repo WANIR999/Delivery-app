@@ -12,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 91vh;
+    height: 100%;
   }
 
   .fill{

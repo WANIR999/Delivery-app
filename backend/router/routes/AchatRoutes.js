@@ -6,7 +6,7 @@ const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
 const errorHandler=require('../middelwares/errorHandler/errorhandler')
 
 router.get('/allachats',GetAllachats)
-router.put('/Updatestatus/:id',Updatestatus)
+router.post('/Updatestatus',Updatestatus)
 
 router.use(errorHandler)
 
