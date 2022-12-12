@@ -24,6 +24,7 @@ import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
+import Cart from './components/Cart';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
+        <Route path='cart' element={<Cart/>}/>
         <Route path='client/home' element={<Plats/>}/>
         </Route>
 
