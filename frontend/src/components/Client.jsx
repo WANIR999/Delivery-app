@@ -10,19 +10,18 @@ const over={'overflow': 'auto','height': '100vh'}
 const bgg={'color':'white'}
 
 const Client=()=>{
-
-   const [commanClient,setcommanClient]=useState([])
-   const id_Client=localStorage.getItem("token")
-   const ClientCommand= async()=>{
-      const CommandClient=await axios.get(`http://localhost:8080/api/command/commandClient/${id_Client}`)
-      setcommanClient(CommandClient.data)
-      console.log(id_Client._id)
-
-
-   }
-   useEffect(()=>{
-      ClientCommand();
-   },[])
+    const [client_c, setClient] = useState([])
+    useEffect(()=>{
+        try{
+            ClientCommand()
+        } catch(error) {
+            console.log(error)
+        }
+    }, [])
+    const ClientCommand = async () => {
+        const get_commands_client = await axios.get('http://localhost:8080/api/command/commandClient')
+        setClient(get_commands_client.data.CommandClient)
+    }
 
 return(
     <div className="  bg-white">
@@ -34,7 +33,7 @@ return(
                             <div className=" p-1 w-100 " style={over} >
                                 <Row className="  m-auto mt-3  ">
                                     <div className="p-2 ">
-                                        <Table responsive="md">
+                                    <Table responsive="md">
                                             <thead>
                                                 <tr className="bg-secondary" style={bgg}>
                                                     <th >Nom de Plat </th>
@@ -44,22 +43,17 @@ return(
                                                     <th >Date de Commmand</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                              {
-                                            //  console.log(commanClient)
-
-                                            //     commanClient.map((e)=>(
-                                            //        <tr key={e._id}>
-                                            //        <td>{e.plat_id.name}</td>
-                                            //        <td>{e.Quantité}</td>
-                                            //        <td>{e.Prix}</td>
-                                            //        <td>{e.Status_du_command}</td>
-                                            //        <td>{e.date_Command}</td>
-                                                  
-                                            //    </tr>
-                                            //    ))
-                                              }
-                                            </tbody>
+                                            {/* <tbody>
+                                                {client_c.map((e, i)=>(
+                                                    <tr key={i}>
+                                                        <td>{e.plat_id.name}</td>
+                                                        <td>{e.Quantité}</td>
+                                                        <td>{e.Prix}</td>
+                                                        <td>{e.Status_du_command}</td>
+                                                        <td>{e.date_Command}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody> */}
                                         </Table>
                                     </div>
                                 </Row>

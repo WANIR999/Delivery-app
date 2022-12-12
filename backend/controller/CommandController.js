@@ -1,7 +1,9 @@
 const command=require('../model/CommandModel')
 const client=require('../model/user')
 const plats=require('../model/Plats')
+const jwt=require('jsonwebtoken')
 const env=require('dotenv')
+let Storage = require('local-storage')
 const { findOneAndUpdate, findOne } = require('../model/CommandModel')
 
 const AjouterCommand=async(req,res)=>{
@@ -41,7 +43,7 @@ const DeletCommand=async(req,res)=>{
   
 }
 const AllCommand=async(req,res)=>{
- const commands=await command.find()
+ const commands = await command.find()
     .populate([
       {
         path: 'plat_id',  
@@ -63,16 +65,14 @@ const AllCommand=async(req,res)=>{
   // }
 }
 const commandClient=async(req,res)=>{  
-  const {token}=req.body
-  const tokn=jwt.verify(token,process.env.SECRET)
-  // affichage ba9i 3ndi error fih 
-
-    const CommandClient=await command.findOne({Client_id:tokn.id})
+  if(!Storage('token')) throw Error('makynch token ')
+  const verify_token = jwt.verify(Storage('token') ,process.env.SECRET)
+    const CommandClient = await command.findOne({Client_id:verify_token.email._id})
     .populate([
       {
-        path: 'plat_id',  
+        path: 'plat_id',
         model:plats
-    },
+      },
       {
         path: 'Client_id', 
         model:client
@@ -80,14 +80,14 @@ const commandClient=async(req,res)=>{
       {
         path: 'Livreur_id', 
         model:client
-      }, 
+      },
     ])
-    if(CommandClient){
-      res.json(CommandClient)
-    }else{
-      throw Error('Sorry vous avez pas de command') 
-    }
-  
+
+      res.json({CommandClient})
+    
+      // throw Error('Sorry vous avez pas de command') 
+    
+
  
 }
 

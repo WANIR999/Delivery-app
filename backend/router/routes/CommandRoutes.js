@@ -8,7 +8,7 @@ router.post('/ajouterCommand',tryCatch(AjouterCommand))
 router.put('/updateCommand/:id',tryCatch(UpdateCommand))
 router.delete('/deletCommand/:id',tryCatch(DeletCommand))
 router.get('/allCommand',tryCatch(AllCommand))
-router.get('/commandClient/:id_client',tryCatch(verification.getid),tryCatch(commandClient))
+router.get('/commandClient',tryCatch(commandClient))
 
 
 router.use(errorHandler)

@@ -16,7 +16,7 @@ const Client=()=>{
    const ClientCommand= async()=>{
       const commands=await axios.get('http://localhost:8080/api/command/allCommand')
       setcommanClient(commands.data)
-      console.log(commands)
+    //   console.log(commands)
 
 
    }
@@ -47,7 +47,7 @@ return(
                                             <tbody>
                                               {
                                        
-                                       Commands.map((e)=>(
+                                            Commands.map((e)=>(
                                                    <tr key={e._id}>
                                                    <td>{e.plat_id.name}</td>
                                                    <td>{e.Quantité}</td>
