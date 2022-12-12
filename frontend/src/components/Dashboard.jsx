@@ -1,3 +1,4 @@
+
 import "../App.css";
 import { useState, useEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +38,7 @@ const update= async (a)=>{
             <th scope="col">switch it</th>
             </tr>
         </thead>
+        
         <tbody >
             {
             values.map((e)=>(

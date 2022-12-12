@@ -1,4 +1,3 @@
-
 const Achat  = require('../model/Achat')
 const Command=require('../model/CommandModel')
 const Payment=require('../model/Payment')
