@@ -67,11 +67,12 @@ const AllCommand=async(req,res)=>{
 const commandClient=async(req,res)=>{  
   if(!Storage('token')) throw Error('makynch token ')
   const verify_token = jwt.verify(Storage('token') ,process.env.SECRET)
-    const CommandClient = await command.findOne({Client_id:verify_token.email._id})
+    const CommandClient = await command.find({Client_id:verify_token.email._id})
     .populate([
       {
         path: 'plat_id',
-        model:plats
+        model:plats,
+        select: { name:1 }
       },
       {
         path: 'Client_id', 
@@ -83,9 +84,13 @@ const commandClient=async(req,res)=>{
       },
     ])
 
-      res.json({CommandClient})
-    
-      // throw Error('Sorry vous avez pas de command') 
+      if(CommandClient===null){
+        throw Error('Sorry vous avez pas de command') 
+
+      }else{
+        res.json(CommandClient)
+
+      }
     
 
  

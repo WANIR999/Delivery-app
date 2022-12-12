@@ -5,15 +5,14 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
-
 const over={'overflow': 'auto','height': '100vh'}
 const bgg={'color':'white'}
 
-const Client=()=>{
+const Allcommands=()=>{
 
    const [Commands,setcommanClient]=useState([])
    
-   const ClientCommand= async()=>{
+   const allCommands= async()=>{
       const commands=await axios.get('http://localhost:8080/api/command/allCommand')
       setcommanClient(commands.data)
     //   console.log(commands)
@@ -21,7 +20,7 @@ const Client=()=>{
 
    }
    useEffect(()=>{
-      ClientCommand();
+      allCommands();
    },[])
 
 return(
@@ -29,19 +28,20 @@ return(
         <div className="d-flex">
             <div className=" p-1 w-100" style={over} >
                 {/* col sidebar */}
+                
                     <Row className="  m-auto mt-3 bg-light text-dark">
                         <div>
                             <div className=" p-1 w-100 " style={over} >
                                 <Row className="  m-auto mt-3  ">
-                                    <div className="p-2 ">
-                                        <Table responsive="md">
+                                <div className="tbl bg-white">
+                                    <Table className="table ">
                                             <thead>
                                                 <tr className="bg-secondary" style={bgg}>
-                                                    <th >Nom de Plat </th>
-                                                    <th >Quantié</th>
-                                                    <th >Prix</th>
-                                                    <th >Status</th>
-                                                    <th >Date de Commmand</th>
+                                                    <th scope="col" >Nom de Plat </th>
+                                                    <th scope="col" >Quantié</th>
+                                                    <th scope="col" >Prix</th>
+                                                    <th scope="col" >Status</th>
+                                                    <th scope="col" >Date de Commmand</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -71,4 +71,4 @@ return(
     
 )
 }
-export default Client
+export default Allcommands

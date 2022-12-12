@@ -9,22 +9,23 @@ import { useEffect } from "react";
 const over={'overflow': 'auto','height': '100vh'}
 const bgg={'color':'white'}
 
-const Client=()=>{
-    const [client_c, setClient] = useState([])
-    useEffect(()=>{
-        try{
-            ClientCommand()
-        } catch(error) {
-            console.log(error)
-        }
-    }, [])
-    const ClientCommand = async () => {
-        const get_commands_client = await axios.get('http://localhost:8080/api/command/commandClient')
-        setClient(get_commands_client.data.CommandClient)
+const Clientcmd=()=>{
+
+    const [commandclient,setcommanClient]=useState([])
+    
+    const ClientCommand= async()=>{
+       const CommandClient=await axios.get('http://localhost:8080/api/command/commandClient')
+       setcommanClient(CommandClient.data)
+       console.log(CommandClient)
+ 
+ 
     }
+    useEffect(()=>{
+       ClientCommand();
+    },[])
 
 return(
-    <div className="  bg-white">
+    <div className="  bg-white w-100">
         <div className="d-flex">
             <div className=" p-1 w-100" style={over} >
                 {/* col sidebar */}
@@ -43,17 +44,17 @@ return(
                                                     <th >Date de Commmand</th>
                                                 </tr>
                                             </thead>
-                                            {/* <tbody>
-                                                {client_c.map((e, i)=>(
-                                                    <tr key={i}>
-                                                        <td>{e.plat_id.name}</td>
-                                                        <td>{e.Quantité}</td>
-                                                        <td>{e.Prix}</td>
-                                                        <td>{e.Status_du_command}</td>
-                                                        <td>{e.date_Command}</td>
-                                                    </tr>
-                                                ))}
-                                            </tbody> */}
+                                            <tbody>
+                                              {commandclient.map((e)=>(
+                                                   <tr key={e._id}>
+                                                   <td>{e.plat_id.name}</td>
+                                                   <td>{e.Quantité}</td>
+                                                   <td>{e.Prix}</td>
+                                                   <td>{e.Status_du_command}</td>
+                                                   <td>{e.date_Command}</td>
+                                               </tr>
+                                               ))}
+                                            </tbody>
                                         </Table>
                                     </div>
                                 </Row>
@@ -66,4 +67,4 @@ return(
     
 )
 }
-export default Client
+export default Clientcmd

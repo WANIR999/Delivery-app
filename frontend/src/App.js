@@ -47,12 +47,9 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
-<<<<<<< HEAD
         <Route path='client/home' element={<Client/>}/>
-=======
         <Route path='cart' element={<Cart/>}/>
         <Route path='client/home' element={<Plats/>}/>
->>>>>>> 5c3001c2c7ddaea21483235600e356d706fcec96
         </Route>
 
         </Route>
@@ -97,12 +94,9 @@ function App() {
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='sid' element={<SideBar/>}/>
        <Route path='*' element={<Error/>}/>
-<<<<<<< HEAD
        <Route path='Command' element={<Command/>}/>
 
        {/* <Route path='/client' element={<Client/>}/> */}
-=======
->>>>>>> 5c3001c2c7ddaea21483235600e356d706fcec96
       </Routes>
     </Router>
       
