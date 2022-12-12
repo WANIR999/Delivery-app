@@ -20,6 +20,15 @@ import LivreurRoutes from './privateroutes_component.js/livreurRoutes';
 import ManagerRoutes from './privateroutes_component.js/managerRoutes';
 import Forget_pass_confirm from './components/Forget_pass_confirm';
 import Achat from './components/Livreur'
+import LivreurAdd from './components/LivreurAdd';
+import CatAdd from './components/CategorieAdd';
+import CategoriesList from './components/Catdisplay';
+import PaymentList from './components/Paymendisplay';
+import SideBar from './components/SideBar';
+import Cart from './components/Cart';
+
+
+
 
 function App() {
   return (
@@ -38,7 +47,12 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
+<<<<<<< HEAD
         <Route path='client/home' element={<Client/>}/>
+=======
+        <Route path='cart' element={<Cart/>}/>
+        <Route path='client/home' element={<Plats/>}/>
+>>>>>>> 5c3001c2c7ddaea21483235600e356d706fcec96
         </Route>
 
         </Route>
@@ -56,8 +70,12 @@ function App() {
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
         <Route path='auth' element={<Navbar/>}>
-        <Route path='manager/home' element={<Dashboard/>}/>
-
+        <Route path='manager/home' element={<Home/>}/>
+        <Route path='manager/users' element={<Dashboard/>}/>
+        <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
+        <Route path='manager/categorie/add' element={<CatAdd/>}/>
+        <Route path='manager/categorie/list' element={<CategoriesList/>}/>
+        <Route path='manager/payment/list' element={<PaymentList/>}/>
         </Route>
         
         </Route>
@@ -77,10 +95,14 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
+       <Route path='sid' element={<SideBar/>}/>
        <Route path='*' element={<Error/>}/>
+<<<<<<< HEAD
        <Route path='Command' element={<Command/>}/>
 
        {/* <Route path='/client' element={<Client/>}/> */}
+=======
+>>>>>>> 5c3001c2c7ddaea21483235600e356d706fcec96
       </Routes>
     </Router>
       

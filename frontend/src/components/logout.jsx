@@ -1,4 +1,5 @@
 import "../App.css";
+import"./sidebar.css"
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
@@ -12,7 +13,7 @@ const Logout = () => {
 
   return (
     <div>
-     <button  onClick={onClick} className="btn  h-25 text-center text-light p-0 m-0">log out</button>
+     <button  onClick={onClick} className="btn  h-25 text-center text-light p-0 m-0 hover">log out</button>
     </div>
   );
 };
