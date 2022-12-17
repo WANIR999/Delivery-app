@@ -20,9 +20,9 @@ const AjouterCommand=async(req,res)=>{
     }      
 }
 const UpdateCommand=async(req,res)=>{
-  const updatecommand=await command.updateOne({_id:req.params.id},{$set:req.body})
+  const updatecommand=await command.findOneAndUpdate({_id:req.params.id},{$set:req.body})
   if(updatecommand){
-    res.json(updatecommand)
+    res.json({updatecommand})
     }else{
     throw Error('Command not update')
   
@@ -60,9 +60,8 @@ const AllCommand=async(req,res)=>{
     ])
   // if(commands){
     res.json(commands)
-  // }else{
-  //   throw Error('problem to get all data')
-  // }
+     throw Error('problem to get all data')
+  
 }
 const commandClient=async(req,res)=>{  
   if(!Storage('token')) throw Error('makynch token ')
@@ -76,17 +75,15 @@ const commandClient=async(req,res)=>{
       },
       {
         path: 'Client_id', 
-        model:client
+        model:client,
+        select: { _id:1 }
+
       }, 
-      {
-        path: 'Livreur_id', 
-        model:client
-      },
+   
     ])
 
       if(CommandClient===null){
         throw Error('Sorry vous avez pas de command') 
-
       }else{
         res.json(CommandClient)
 
@@ -102,6 +99,6 @@ module.exports={
     UpdateCommand,
     DeletCommand,
     AllCommand,
-    commandClient
+    commandClient,
 
 }
