@@ -125,6 +125,19 @@ const commandClient=async(req,res)=>{
       }
 }
 
+// get number des command pour chaque client
+
+const CountCommandbyclient=async(req,res)=>{
+  if(!Storage('token')) throw Error('makynch token ')
+  const verif_token = jwt.verify(Storage('token') ,process.env.SECRET)
+  const CommandClient = await command.find({Client_id:verif_token.email._id}).countDocuments({})
+    if(CommandClient==0){
+      res.json(0)
+    }else{
+      res.json(CommandClient)
+
+    }1
+}
 
 module.exports={
     AjouterCommand,
@@ -132,5 +145,6 @@ module.exports={
     DeletCommand,
     AllCommand,
     commandClient,
+    CountCommandbyclient
 
 }
