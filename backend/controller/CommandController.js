@@ -7,26 +7,60 @@ let Storage = require('local-storage')
 const { findOneAndUpdate, findOne } = require('../model/CommandModel')
 
 const AjouterCommand=async(req,res)=>{
-    const {body} = req
-    const new_command=new command({
-      ...body
-    })
-    const saveCommand=await new_command.save();
-    if(saveCommand){
-      res.json(saveCommand)
-    }else{
-          throw Error('Command not created')
+    // const {body} = req
+    const Quantit=req.body.Quantité
+    const Prix=req.body.Prix
+    if(!Storage('token')) throw Error('fait login obligatoire')
+    const ver_token = jwt.verify(Storage('token') ,process.env.SECRET)
+    const chek_Client= await client.findOne({_id:ver_token.email._id,role:ver_token.email.role})
+      if(chek_Client){
+        const new_command=new command({
+          // ...body
+          plat_id:req.body.plat_id,
+          Client_id:ver_token.email._id,
+          Quantité:Quantit,
+          Prix:Prix, 
+          Montant_total:Prix*Quantit 
 
-    }      
+        })
+        const saveCommand=await new_command.save();
+        if(saveCommand){
+          res.json(saveCommand)
+        }else{
+              throw Error('Command not created')
+    
+        }
+      }else{
+      res.send("khassak tkon client")
+      }
+        
 }
 const UpdateCommand=async(req,res)=>{
-  const updatecommand=await command.findOneAndUpdate({_id:req.params.id},{$set:req.body})
-  if(updatecommand){
-    res.json({updatecommand})
-    }else{
-    throw Error('Command not update')
-  
-}
+  const check_command=await command.find({_id:req.params.id})
+  .populate([
+    {
+      path: 'plat_id',  
+      model:plats,
+      select: { name:1,Prix:1}
+
+  },
+  {
+    path: 'Client_id', 
+    model:client,
+    select: { _id:1 }
+
+  },
+   
+  ])
+  if(check_command){
+    const Prix_plat=check_command[0].plat_id.Prix
+        const UpdateCommand=await command.findOneAndUpdate({_id:req.params.id},{$set:{Quantité:req.body.Quantité,Montant_total:req.body.Quantité*Prix_plat}})
+          if(UpdateCommand){
+           res.json(UpdateCommand)
+          }
+      }else{
+        res.send("error to update command")
+      }
 }
 
 const DeletCommand=async(req,res)=>{
@@ -37,28 +71,29 @@ const DeletCommand=async(req,res)=>{
     res.send("suppresion sucees")
   }else{
     throw Error('problem to  suppresion command')
-
-
   }
-  
 }
 const AllCommand=async(req,res)=>{
  const commands = await command.find()
     .populate([
       {
         path: 'plat_id',  
-        model:plats
+        model:plats,
+        select: { name:1,Prix:1}
+    },
+    {
+      path: 'Client_id', 
+      model:client,
+      select: { _id:1 }
+
     },
       {
-        path: 'Client_id', 
-        model:client
-      }, 
-      {
-        path: 'Livreur_id', 
-        model:client
+        path: 'Prix', 
+        model:plats,
+        select: { Prix:1}
+
       }, 
     ])
-  // if(commands){
     res.json(commands)
      throw Error('problem to get all data')
   
@@ -71,7 +106,7 @@ const commandClient=async(req,res)=>{
       {
         path: 'plat_id',
         model:plats,
-        select: { name:1 }
+        select: { name:1 ,Prix:1}
       },
       {
         path: 'Client_id', 
@@ -88,9 +123,6 @@ const commandClient=async(req,res)=>{
         res.json(CommandClient)
 
       }
-    
-
- 
 }
 
 

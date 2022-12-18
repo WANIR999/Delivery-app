@@ -17,6 +17,9 @@ const PlatsSchema= new mongoose.Schema({
    Quantite:{
         type:Number, 
    },
+   Prix:{
+        type:Number, 
+   },
 
 })
 const plats=mongoose.model("Plat",PlatsSchema)

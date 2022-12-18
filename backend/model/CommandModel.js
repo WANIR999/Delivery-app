@@ -1,5 +1,4 @@
 const mongoose=require("mongoose")
-
 const CommandsSchema= new mongoose.Schema({
      plat_id:{
           type:mongoose.Schema.Types.ObjectId,
@@ -13,9 +12,11 @@ const CommandsSchema= new mongoose.Schema({
 
      },
      Livreur_id:{
-          type: mongoose.Schema.Types.ObjectId, 
-          ref: 'user',
-          required:true
+          // type: mongoose.Schema.Types.ObjectId, 
+          // ref: 'user',
+          type:String,
+          default:"Aucun livreur pour l'instant" 
+
 
      },
      Quantité:{
@@ -24,12 +25,24 @@ const CommandsSchema= new mongoose.Schema({
 
      },
      Prix:{
-      type:Number,
-     //  required:true
+          type:mongoose.Schema.Types.ObjectId,
+          ref:'plats',
+          required:true
+          // type:Number,
+          // required:true,
+          
+
+     },
+     Montant_total:{
+          type:Number,
+          required:true,
+
      },
      Status_du_command:{
       type:String,
-      required:true
+      required:true,
+      default:"En preparation" 
+
      },
      date_Command :{
      type : Date, 

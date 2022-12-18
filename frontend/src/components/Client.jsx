@@ -29,7 +29,7 @@ useEffect(()=>{
 const setData = (e) => {
     setID(e._id)
     setPlat(e.plat_id.name)
-    setprix(e.Prix)
+    setprix(e.plat_id.Prix)
     setQuantité(e.Quantité)
  }
 
@@ -37,14 +37,12 @@ let dataupdate={ID,name,Prix,Quantité}
 const savedaat=async(e)=>{
     e.preventDefault()
     await axios.put(`http://localhost:8080/api/command/updateCommand/${ID}`,dataupdate)
-
         .then((responce)=>{
-            // console.log(dataupdate)
+            // console.log(responce)
             window.location.reload(false);        
         }).catch((err)=>{
             history.push('/auth/client/home')
         })
-
 }
 // delet command
 const DeletId=async(id)=>{
@@ -58,7 +56,6 @@ const DeletId=async(id)=>{
     })
 }
 
-
 return(
     <div >
      <div className="container tbl">
@@ -67,8 +64,9 @@ return(
         <tr>
             <th >Nom de Plat </th>
             <th >Quantié</th>
-            <th >Prix</th>
-            <th >Status</th>
+            <th >Prix de Plat</th>
+            <th >Montant Total</th>
+            <th >Status de Command</th>
             <th >Date de Commmand</th>
             <th >Option</th>
         </tr>
@@ -78,7 +76,8 @@ return(
             <tr key={e._id}>
             <td>{e.plat_id.name}</td>
             <td>{e.Quantité}</td>
-            <td>{e.Prix}</td>
+            <td>{e.plat_id.Prix}DH</td>
+            <td>{e.Montant_total}DH</td>
             <td>{e.Status_du_command}</td>
             <td>{e.date_Command}</td>
             <td style={{display:"flex"}}>
@@ -109,7 +108,7 @@ return(
                     <input type="number" name="Quantité"  value={Quantité} onChange={(e)=>setQuantité(e.target.value)}  />
 
                     <label className="fs-5">Prix</label>
-                    <input type="number" name="Prix"  value={Prix} onChange={(e)=>setprix(e.target.value)} />
+                    <input type="number" name="Prix"  value={Prix} onChange={(e)=>setprix(e.target.value)} readOnly/>
                 </div>
                <div style={{display:"flex"}}>
                 <button type="button" className="fs-5 btn-secondary me-3" data-bs-dismiss="modal">Close</button>
