@@ -136,7 +136,31 @@ const CountCommandbyclient=async(req,res)=>{
     }else{
       res.json(CommandClient)
 
-    }1
+    }
+}
+
+const Profil=async(req,res)=>{
+  if(!Storage("token"))throw Error('makynch token ')
+   const verfie_token=jwt.verify(Storage("token"),process.env.SECRET)
+   const getclientdata=await client.findOne({_id:verfie_token.email._id})
+   if(getclientdata){
+    res.json(getclientdata)
+  }else
+  throw Error('data for the users note existe ')
+
+}
+const updateProfil=async(req,res)=>{
+  if(!Storage("token")) throw Error('makynch token ')
+  const ver_token=jwt.verify(Storage("token"),process.env.SECRET)
+  const updateprofil=await client.findOneAndUpdate({_id:ver_token.email._id},{$set:{name:req.body.name,email:req.body.email}})
+  if(updateprofil){
+    res.json(updateprofil)
+  }else{
+    res.json("update profil not success")
+
+  }
+
+
 }
 
 module.exports={
@@ -145,6 +169,8 @@ module.exports={
     DeletCommand,
     AllCommand,
     commandClient,
-    CountCommandbyclient
+    CountCommandbyclient,
+    Profil,
+    updateProfil
 
 }

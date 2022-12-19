@@ -25,7 +25,10 @@ import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
+import DashbordClient from './components/DashbordClient';
+import ProfilClient from './components/ProfilClient';
 import Cart from './components/Cart';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -49,7 +52,9 @@ function App() {
         <Route path='auth' element={<Navbar/>}>
         <Route path='client/home' element={<Client/>}/>
         <Route path='cart' element={<Cart/>}/>
-        <Route path='client/home' element={<Plats/>}/>
+        <Route path='client/Command' element={<Client/>}/>
+        <Route path='client/ProfilClient' element={<ProfilClient/>}/>
+        <Route path='client/Dashbord' element={<DashbordClient/>}/>
         </Route>
 
         </Route>

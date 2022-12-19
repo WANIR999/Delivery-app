@@ -7,14 +7,13 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect,history } from "react";
-
-
+import { ToastContainer, toast } from 'react-toastify';
 
 const Clientcmd=()=>{
 const [ID,setID]=useState("")
 const [name,setPlat]=useState("")
 const [Prix,setprix]=useState("")
-const [Quantité,setQuantité]=useState()
+const [Quantité,setQuantité]=useState("")
 // affichege command
 const [commandclient,setcommanClient]=useState([])
 const ClientCommand= async()=>{
@@ -39,19 +38,23 @@ const savedaat=async(e)=>{
     await axios.put(`http://localhost:8080/api/command/updateCommand/${ID}`,dataupdate)
         .then((responce)=>{
             // console.log(responce)
-            window.location.reload(false);        
+            toast.success('Update success')
+            window.location.reload(false); 
+
         }).catch((err)=>{
+            toast.error('This is an error!');
             history.push('/auth/client/home')
         })
 }
 // delet command
 const DeletId=async(id)=>{
-// console.log(id)
     await axios.delete(`http://localhost:8080/api/command/deletCommand/${id}`)
     .then((responce)=>{
-        // console.log(responce)
+        toast.success('delet success')
         window.location.reload(false);        
     }).catch((err)=>{
+
+        toast.error('This is an error!');
         history.push('/auth/client/home')
     })
 }
@@ -81,7 +84,7 @@ return(
             <td>{e.Status_du_command}</td>
             <td>{e.date_Command}</td>
             <td style={{display:"flex"}}>
-            <button className="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setData(e)} ><AiFillEdit className="fs-3 text-success"/></button>
+            <button className="btn"  data-bs-toggle="modal" data-bs-target="#exampleModal"  onClick={() => setData(e)} ><AiFillEdit className="fs-3 text-success"/></button>
             <button className="btn"  onClick={()=>{ if (window.confirm('Are you sure you wish to delete this Command  ?')) DeletId(e._id)}}><RiDeleteBin2Fill className="fs-3 text-danger "/></button> 
             </td>
         </tr>
@@ -121,6 +124,7 @@ return(
     </div>
   </div>
 </div>
+<ToastContainer/>
 </div>
     
 )
