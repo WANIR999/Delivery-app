@@ -8,7 +8,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
-import Home from './components/Home';
+import Home from './components/home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
 import Logout from './components/logout';
@@ -26,6 +26,8 @@ import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
 import Cart from './components/Cart';
+import header from './components/header';
+import Header from './components/header';
 
 
 
@@ -78,14 +80,20 @@ function App() {
 
 
               {/* No authentication routes */}
-        <Route element={<NoauthRoutes/>}>
+        <Route element={<NoauthRoutes/>}> 
         <Route path='Register' element={<Register/>}/>
+        <Route path='login' element={<Login/>}/>
         <Route path='/' element={<Login/>}/>
         <Route path='login' element={<Login/>}/>
         <Route path='forgetpassword' element={<Foget_password/>}/>
         <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
-        </Route>
+        <Route path='noauth' element={<Header/>}>
+       <Route path='Home' element={<Home/>}/>
+       
 
+       {/* <Route path='Footer' element={<Footer/>}/> */}
+       </Route>
+       </Route>
 
    
              {/* global route */}
@@ -94,7 +102,7 @@ function App() {
        <Route path='*' element={<Error/>}/>
       </Routes>
     </Router>
-      
+
 
   );
 }

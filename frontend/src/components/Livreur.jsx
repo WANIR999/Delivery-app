@@ -1,18 +1,17 @@
-
 import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
 
 const Livreur=()=> {
+  
 const [formData,setvalues]=useState([])
 
-  const getachat= async ()=>{
+const getachat= async ()=>{
      const achats= await axios.get('http://localhost:8080/api/achat/allachats')
      setvalues(achats.data)
      console.log(achats)
   }
 
-  
 useEffect(()=>{
   getachat();
   },[])
@@ -22,16 +21,15 @@ useEffect(()=>{
     const id= e.target.value
     const status = await axios.post('http://localhost:8080/api/achat/Updatestatus',{id})
     if( status.data) window.location.reload(false);
-   
   }
- 
+
   return (
     <div  className="App auth mt-5" >
     <div className="container d-flex flex-column justify-content-start tblw  ms-5">
-
        <div className="tbl bg-white">
         <table className="table">
-        <thead>
+          
+        <thead class="table-dark">
             <tr>
             <th scope="col">Quantite</th>
             <th scope="col">Type payement</th>
@@ -40,7 +38,6 @@ useEffect(()=>{
             <th scope="col"></th>
             </tr>
         </thead>
-        
         <tbody >
           {
             formData.map((e)=>(

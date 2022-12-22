@@ -71,7 +71,6 @@
     overflow-y: scroll !important;
     overflow-x: scroll !important;
     border: 1px solid gray;
-    border-radius: 20px;
   }
 .minimize{
   margin: 2px;
