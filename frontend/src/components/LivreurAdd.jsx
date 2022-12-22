@@ -61,7 +61,7 @@ const LivreurAdd = () => {
   };
   
   return (
-    <div className="App auth fill">
+    <div className="App auth mx-auto">
       <form onSubmit={handleSubmit}>
         <h1>add delivrer</h1>
         {errmsg ? (
