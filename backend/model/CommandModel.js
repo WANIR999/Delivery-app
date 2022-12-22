@@ -17,15 +17,10 @@ const CommandsSchema= new mongoose.Schema({
           type:Number,
           required:true
      },
-     Prix:{
-      type:Number,
-      required:true
-     },
      Status_du_command:{
       type:String,
       required:true
      },
-
 })
 
 const Command=mongoose.model("command",CommandsSchema)

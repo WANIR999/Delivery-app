@@ -11,15 +11,12 @@ const PlatsSchema= new mongoose.Schema({
    Composent:{
         type:String,
    },
+   prix:{
+        type:Number,
+   },
    image:{
-        type:String,
-   },
-   Quantite:{
-        type:Number, 
-   },
-   price:{
      type:String,
-   }
+},
 
 })
 const plats=mongoose.model("Plat",PlatsSchema)

@@ -24,8 +24,8 @@ import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
+import Addplat from './components/Addplat';
 import Cart from './components/Cart';
-import header from './components/header';
 import Header from './components/header';
 
 
@@ -72,6 +72,7 @@ function App() {
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         <Route path='manager/payment/list' element={<PaymentList/>}/>
+        <Route path='manager/plat/add' element={<Addplat/>}/>
         </Route>
         
         </Route>
@@ -97,7 +98,6 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
-       <Route path='sid' element={<SideBar/>}/>
        <Route path='*' element={<Error/>}/>
       </Routes>
     </Router>
