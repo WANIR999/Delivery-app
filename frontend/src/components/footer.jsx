@@ -8,8 +8,7 @@ export default function Footer() {
     </div>
 
     <div className="text-center p-3" style={{background: "rgba(0, 0, 0, 0.2)"}}>
-        © 2022 Copyright:
-    </div>
+        © 2022 </div>
 {/* </footer> */}
     </div>
   )

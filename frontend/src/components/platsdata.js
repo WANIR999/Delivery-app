@@ -9,6 +9,7 @@ const platsdata=
         Quantite:"2",
         price:"200DH",
     },
+    
     {
         name:"PIZZA",
         categorie:"principal",
