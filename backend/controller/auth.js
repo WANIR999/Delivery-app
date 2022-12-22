@@ -1,4 +1,3 @@
-
 const User = require('../model/user');
 const bcrypt=require('bcryptjs')
 const localstorage = require('local-storage');

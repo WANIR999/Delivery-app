@@ -11,7 +11,7 @@ const payments= require('./router/routes/PaymentRoutes')
 const categorie= require('./router/routes/CategorieRoutes')
 const Achat= require('./router/routes/AchatRoutes')
 
-app.use(cors())
+app.use(cors()) 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/api/auth',auth)

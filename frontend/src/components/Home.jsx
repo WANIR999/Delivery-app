@@ -1,23 +1,41 @@
 import { Link } from "react-router-dom";
+import React from "react";
+import platsdata from './platsdata'
+import Plat from './PlatsPage'
+import Footer from "./footer";
+const style={"border-radius": "0px 400px 0px 0px ","height":"350px","width": "100%"}
 
 const Home = () => {
+  
   return (
-    <div className="auth">
-     <div class="container row  tblw bg-info  ms-5">
-     <div className="col">
+       <div className="row">
+        <div className=" d-flex img justify-cotent-between">
+         
+          <div className="col-md-8">
+          <img src= "https://curlytales.com/wp-content/uploads/2020/03/online-food-2.jpg" style={style}></img>
+          </div>
 
-     <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-      <Link to=""  className="btn btn-secondary text-white hover" >test</Link>
-    </div>
+         <div className="col-md-3 p-5 ">
+           <h1>Get your deliveries on the road</h1>
+         </div>
 
-     </div>
-     </div>
-    </div>
+          </div>
+
+         <h2 className="text-danger"> Order now</h2>
+
+        {platsdata.map(plat=>{
+          return <div className="col-md-4 p-3">
+          
+           <div><Plat plat={plat} />
+          
+            </div>
+          </div>
+        })}
+
+
+<Footer />
+
+               </div>
   );
 };
-
 export default Home;
