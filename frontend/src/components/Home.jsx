@@ -1,10 +1,10 @@
-
+import { Link } from "react-router-dom";
 import React from "react";
 import platsdata from './platsdata'
 import Plat from './PlatsPage'
 import Footer from "./footer";
-
 const style={"border-radius": "0px 400px 0px 0px ","height":"350px","width": "100%"}
+
 const Home = () => {
   
   return (
@@ -36,9 +36,6 @@ const Home = () => {
 <Footer />
 
                </div>
-       
-
-       
   );
 };
 export default Home;

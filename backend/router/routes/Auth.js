@@ -2,6 +2,7 @@
 const router= require('express').Router();
 const auth=require('../../controller/auth')
 const user=require('../../controller/UserController')
+const {DashboardStat}=require('../../controller/statisticController')
 const verification=require('../middelwares/token_verification')
 const verfemail=require('../middelwares/veirfy_email')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
@@ -22,6 +23,8 @@ router.post('/decrypt',auth.decrpttoken)
 
 
 router.post('/switchtoliv',verification.verify(["manager"]),auth.switchto)
+
+
 
 router.use(errorHandler)
 
