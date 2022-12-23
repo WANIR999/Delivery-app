@@ -47,7 +47,7 @@ const CommandsSchema= new mongoose.Schema({
      date_Command :{
      type : Date, 
      default: Date.now 
-}
+},
 
 
      Status_du_command:{
