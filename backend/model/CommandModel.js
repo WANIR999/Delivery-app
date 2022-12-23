@@ -38,11 +38,10 @@ const CommandsSchema= new mongoose.Schema({
           required:true,
 
      },
-     Status_du_command:{
-      type:String,
-      required:true,
-      default:"En preparation" 
-
+     achats_id:{
+     type:mongoose.Schema.Types.ObjectId,
+     ref:'achats',
+     required:true,
      },
      date_Command :{
      type : Date, 

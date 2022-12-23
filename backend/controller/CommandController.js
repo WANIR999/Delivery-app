@@ -1,6 +1,7 @@
 const command=require('../model/CommandModel')
 const client=require('../model/user')
 const plats=require('../model/Plats')
+const achats=require('../model/Achat')
 const jwt=require('jsonwebtoken')
 const env=require('dotenv')
 let Storage = require('local-storage')
@@ -113,7 +114,14 @@ const commandClient=async(req,res)=>{
         model:client,
         select: { _id:1 }
 
-      }, 
+      },
+      {
+        path:"achats_id",
+        model:achats,
+        select: { statu:1 }
+    
+    
+      }
    
     ])
 
