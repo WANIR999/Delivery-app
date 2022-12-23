@@ -23,6 +23,7 @@ const register=  async (req,res,next)=>{
 
 const login= async (req,res)=>{
    const {body}=req
+  
    const email = await User.findOne({email:body.email})
    if(!email) throw Error('email not found')
    if(email.confirmation!=true || email.baned!=false) throw Error('anactivated or baned account')
@@ -34,10 +35,8 @@ const login= async (req,res)=>{
    if(!token) throw Error('token not generated')
 
    localstorage('token',token);
-
    const tokenverif= await jwt.verify(localstorage('token'),process.env.SECRET)
    if(!tokenverif) throw Error('token not valid')
-
    res.json({
     msg:"logedin",
     token:localstorage('token'),

@@ -1,5 +1,6 @@
 import React from 'react';
 import "./App.css"
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -7,6 +8,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
+import Command from './components/Command';
 import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
@@ -24,15 +26,22 @@ import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
+import DashbordClient from './components/DashbordClient';
+import ProfilClient from './components/ProfilClient';
 import Cart from './components/Cart';
-import header from './components/header';
+import 'react-toastify/dist/ReactToastify.css';
+import Addplat from './components/Addplat';
 import Header from './components/header';
+import Product from './components/Products';
+import { ToastContainer } from "react-toastify";
+import CheckoutSuccess from './components/CheckoutSuccess';
 
 
 
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Routes>
         {/* auth routes */}
         <Route element={<Private/>}>
@@ -47,8 +56,17 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
+        <Route path='client/home' element={<Client/>}/>
         <Route path='cart' element={<Cart/>}/>
+
+        <Route path='client/Command' element={<Client/>}/>
+        <Route path='client/ProfilClient' element={<ProfilClient/>}/>
+        <Route path='client/Dashbord' element={<DashbordClient/>}/>
+
+        <Route path='checkout-success' element={<CheckoutSuccess/>}/>
+        <Route path='product' element={<Product/>}/>
         <Route path='client/home' element={<Plats/>}/>
+
         </Route>
 
         </Route>
@@ -65,12 +83,17 @@ function App() {
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
         <Route path='auth' element={<Navbar/>}>
-        <Route path='manager/home' element={<Home/>}/>
+        <Route path='manager/home' element={<Dashboard/>}/>
         <Route path='manager/users' element={<Dashboard/>}/>
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         <Route path='manager/payment/list' element={<PaymentList/>}/>
+        <Route path='manager/plat/add' element={<Addplat/>}/>
+        <Route path='manager/cart' element={<Cart/>}/>
+        <Route path='checkout-success' element={<CheckoutSuccess/>}/>
+        <Route path='manager/product' element={<Product/>}/>
+        <Route path='client/home' element={<Plats/>}/>
         </Route>
         
         </Route>
@@ -96,8 +119,10 @@ function App() {
    
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
-       <Route path='sid' element={<SideBar/>}/>
        <Route path='*' element={<Error/>}/>
+       <Route path='Command' element={<Command/>}/>
+
+       {/* <Route path='/client' element={<Client/>}/> */}
       </Routes>
     </Router>
 

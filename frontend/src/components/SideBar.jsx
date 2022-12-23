@@ -29,7 +29,13 @@ const SideBar = () => {
        <div className="sidebox d-flex flex-column justify-content-around align-items-start ">
        <Link to={homeurl}  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i> Home</Link>
        </div>
-       :""
+       :(role=="client") ? 
+       <div className="sidebox d-flex flex-column justify-content-around align-items-start py-3">
+       <Link to="/auth/client/ProfilClient"  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i> Profil</Link>
+       <Link to="/auth/client/Dashbord"  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i>Dashbord</Link>
+       <Link to="/auth/client/Command" className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i>Command</Link>
+       <Link to="/auth/client/logout  "className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i> logout</Link>
+       </div>:""
     );
 
   };

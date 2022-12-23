@@ -1,13 +1,17 @@
 const router= require('express').Router();
-const {AjouterCommand,UpdateCommand,DeletCommand,AllCommand}=require("../../controller/CommandController")
+const {AjouterCommand,UpdateCommand,DeletCommand,AllCommand,commandClient,CountCommandbyclient,Profil,updateProfil}=require("../../controller/CommandController")
 const verification=require('../middelwares/token_verification')
 const {tryCatch}=require('../middelwares/errorHandler/tryCatch')
 const errorHandler=require('../middelwares/errorHandler/errorhandler')
-
-router.post('/ajouterCommand',AjouterCommand)
-router.get('/updateCommand',UpdateCommand)
-router.get('/deletCommand',DeletCommand)
-router.get('/allCommand',AllCommand)
+tryCatch()
+router.post('/ajouterCommand',tryCatch(AjouterCommand))
+router.put('/updateCommand/:id',tryCatch(UpdateCommand))
+router.delete('/deletCommand/:id',tryCatch(DeletCommand))
+router.get('/allCommand',tryCatch(AllCommand))
+router.get('/commandClient',tryCatch(commandClient))
+router.get('/Profil',tryCatch(Profil))
+router.put('/updateProfil',tryCatch(updateProfil))
+router.get('/CountCommandbyclient',tryCatch(CountCommandbyclient))
 
 
 router.use(errorHandler)
