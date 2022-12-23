@@ -14,6 +14,8 @@ const GetAllachats= async(req,res)=>{
         model:Payment
     },
 ])
+
+console.log(achats)
      res.json(achats)
    }
 
@@ -22,7 +24,7 @@ const GetAllachats= async(req,res)=>{
     const achats = await Achat.findOne({_id:id})
     if(achats.statu=="en cours"){ 
     await Achat.findOneAndUpdate({_id : id},{statu:"livrée"})
-
+         
       res.json({msg:'status updated'})
       }
       else{
