@@ -1,5 +1,6 @@
 import React from 'react';
 import "./App.css"
+import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -7,7 +8,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
-import Home from './components/home';
+import Home from './components/Home'; 
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
 import Logout from './components/logout';
@@ -27,6 +28,9 @@ import SideBar from './components/SideBar';
 import Cart from './components/Cart';
 import header from './components/header';
 import Header from './components/header';
+import Product from './components/Products';
+import { ToastContainer } from "react-toastify";
+import CheckoutSuccess from './components/CheckoutSuccess';
 
 
 
@@ -34,6 +38,7 @@ import Header from './components/header';
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Routes>
         {/* auth routes */}
         <Route element={<Private/>}>
@@ -49,6 +54,8 @@ function App() {
 
         <Route path='auth' element={<Navbar/>}>
         <Route path='cart' element={<Cart/>}/>
+        <Route path='checkout-success' element={<CheckoutSuccess/>}/>
+        <Route path='product' element={<Product/>}/>
         <Route path='client/home' element={<Plats/>}/>
         </Route>
 
