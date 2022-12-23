@@ -80,6 +80,10 @@ function App() {
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         <Route path='manager/payment/list' element={<PaymentList/>}/>
         <Route path='manager/plat/add' element={<Addplat/>}/>
+        <Route path='manager/cart' element={<Cart/>}/>
+        <Route path='checkout-success' element={<CheckoutSuccess/>}/>
+        <Route path='manager/product' element={<Product/>}/>
+        <Route path='client/home' element={<Plats/>}/>
         </Route>
         
         </Route>
