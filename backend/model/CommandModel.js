@@ -24,6 +24,7 @@ const CommandsSchema= new mongoose.Schema({
           required:true,
 
      },
+
      Prix:{
           type:mongoose.Schema.Types.ObjectId,
           ref:'plats',
@@ -48,6 +49,13 @@ const CommandsSchema= new mongoose.Schema({
      default: Date.now 
 }
 
+
+     Status_du_command:{
+      type:String,
+      required:true
+     },
+
 })
+
 const Command=mongoose.model("command",CommandsSchema)
 module.exports=Command

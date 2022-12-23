@@ -10,8 +10,9 @@ const plats= require('./router/routes/PlatRoutes')
 const payments= require('./router/routes/PaymentRoutes')
 const categorie= require('./router/routes/CategorieRoutes')
 const Achat= require('./router/routes/AchatRoutes')
+const products = require('./products')
 
-app.use(cors())
+app.use(cors()) 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use('/api/auth',auth)
@@ -21,6 +22,10 @@ app.use('/api/plat',plats)
 app.use('/api/payment',payments)
 app.use('/api/categorie',categorie)
 app.use('/api/achat',Achat)
+
+app.get("/products", (req, res) => {
+    res.send(products);
+});
 
 app.listen(8080);
 

@@ -3,64 +3,65 @@ import { useState,useEffect } from 'react'
 import axios from 'axios'
 
 const Livreur=()=> {
-
+  
 const [formData,setvalues]=useState([])
- 
-  const achat= async ()=>{
+
+const getachat= async ()=>{
      const achats= await axios.get('http://localhost:8080/api/achat/allachats')
      setvalues(achats.data)
+     console.log(achats)
   }
 
-  useEffect(()=>{
-    achat();
+useEffect(()=>{
+  getachat();
   },[])
- 
+
+  const updateStatus= async (e)=>{
+    e.preventDefault()
+    const id= e.target.value
+    const status = await axios.post('http://localhost:8080/api/achat/Updatestatus',{id})
+    if( status.data) window.location.reload(false);
+  }
+
   return (
-    <div>
-       <div className="container tbl">
-        <table className="table ">
-        <thead>
+    <div  className="App auth mt-5" >
+    <div className="container d-flex flex-column justify-content-start tblw  ms-5">
+       <div className="tbl bg-white">
+        <table className="table">
+          
+        <thead class="table-dark">
             <tr>
-            {/* <th scope="col">Plat</th> */}
             <th scope="col">Quantite</th>
-            <th scope="col">prix</th>
-            <th scope="col">Date</th> 
-             <th scope="col">Type payement</th>
+            <th scope="col">Type payement</th>
             <th scope="col">Total</th>
             <th scope="col">Status</th>
-
+            <th scope="col"></th>
             </tr>
         </thead>
         <tbody >
           {
             formData.map((e)=>(
                     <tr key={e._id}>
-                    <td>{e.Quantité}</td>
-                    <td>{e.Prix}</td>
-                    <td>{e.Date}</td>
-                    <td>{e.type}</td>
-                    <td>{e.prix}</td>
+                    <td>{e.command_id.Quantité}</td>
+                    <td>{e.payment_id.type}</td>
+                    <td>{e.payment_id.prix}</td>
                     <td>{e.statu}</td>
-
+                    <td className="d-flex justify-content-center align-items-center">
+                    <button type="submit" value={e._id} onClick={updateStatus} className="d-flex justify-content-center align-items-center h-50 w-50">changer</button>
+                      </td>
                     </tr>
             ))
           }
-
- 
-          
-               
-                    
-                  
-            
         
         </tbody>
         </table>
 
         </div>
        
-    
+    </div>
     </div>
   )
 }
 
 export default Livreur
+
