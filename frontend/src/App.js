@@ -8,7 +8,8 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
-import Home from './components/Home'; 
+import Command from './components/Command';
+import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
 import Logout from './components/logout';
@@ -25,8 +26,11 @@ import CatAdd from './components/CategorieAdd';
 import CategoriesList from './components/Catdisplay';
 import PaymentList from './components/Paymendisplay';
 import SideBar from './components/SideBar';
-import Addplat from './components/Addplat';
+import DashbordClient from './components/DashbordClient';
+import ProfilClient from './components/ProfilClient';
 import Cart from './components/Cart';
+import 'react-toastify/dist/ReactToastify.css';
+import Addplat from './components/Addplat';
 import Header from './components/header';
 import Product from './components/Products';
 import { ToastContainer } from "react-toastify";
@@ -53,10 +57,17 @@ function App() {
         <Route element={<ClientRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
+        <Route path='client/home' element={<Client/>}/>
         <Route path='cart' element={<Cart/>}/>
+
+        <Route path='client/Command' element={<Client/>}/>
+        <Route path='client/ProfilClient' element={<ProfilClient/>}/>
+        <Route path='client/Dashbord' element={<DashbordClient/>}/>
+
         <Route path='checkout-success' element={<CheckoutSuccess/>}/>
         <Route path='product' element={<Product/>}/>
         <Route path='client/home' element={<Plats/>}/>
+
         </Route>
 
         </Route>
@@ -106,6 +117,9 @@ function App() {
              {/* global route */}
        <Route path='accessdenied' element={<Error/>}/>
        <Route path='*' element={<Error/>}/>
+       <Route path='Command' element={<Command/>}/>
+
+       {/* <Route path='/client' element={<Client/>}/> */}
       </Routes>
     </Router>
 
