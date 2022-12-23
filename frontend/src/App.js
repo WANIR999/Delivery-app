@@ -7,7 +7,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
-import Home from './components/home';
+import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
 import Logout from './components/logout';
@@ -66,7 +66,7 @@ function App() {
           {/* manager routes */}
         <Route element={<ManagerRoutes/>}>
         <Route path='auth' element={<Navbar/>}>
-        <Route path='manager/home' element={<Home/>}/>
+        <Route path='manager/home' element={<Dashboard/>}/>
         <Route path='manager/users' element={<Dashboard/>}/>
         <Route path='manager/livreur/add' element={<LivreurAdd/>}/>
         <Route path='manager/categorie/add' element={<CatAdd/>}/>
