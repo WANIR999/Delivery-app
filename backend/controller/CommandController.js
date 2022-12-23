@@ -13,9 +13,7 @@ const AjouterCommand=async(req,res)=>{
             res.send(error)
 
         }
-      
-      
-      
+           
 }
 const UpdateCommand=(req,res)=>{
 res.send("update command")

@@ -6,17 +6,14 @@ const GetAllachats= async(req,res)=>{
     const achats= await Achat.find()
     .populate([
       {
+        path: 'command_id',
+        model:Command
+      },      
+      {
         path: 'payment_id',  
         model:Payment
     },
-      {
-        path: 'command_id', 
-        model:Command
-      }    
 ])
-
-  // path: ['payment_id','command_id'],
-  // model: [Payment,Command]
      res.json(achats)
    }
 

@@ -15,7 +15,7 @@ const getachat= async ()=>{
 useEffect(()=>{
   getachat();
   },[])
-
+ 
   const updateStatus= async (e)=>{
     e.preventDefault()
     const id= e.target.value
@@ -24,12 +24,12 @@ useEffect(()=>{
   }
 
   return (
-    <div  className="App auth mt-5" >
-    <div className="container d-flex flex-column justify-content-start tblw  ms-5">
-       <div className="tbl bg-white">
+    <div  className="App ms-5" >
+    <div className="container shadow-lg d-flex flex-column justify-content-start tblw ms-5">
+      <h3 className=''>Plats à Livrés</h3>
+       <div className="bg-white">
         <table className="table">
-          
-        <thead class="table-dark">
+        <thead>
             <tr>
             <th scope="col">Quantite</th>
             <th scope="col">Type payement</th>
@@ -48,7 +48,7 @@ useEffect(()=>{
                     <td>{e.statu}</td>
                     <td className="d-flex justify-content-center align-items-center">
                     <button type="submit" value={e._id} onClick={updateStatus} className="d-flex justify-content-center align-items-center h-50 w-50">changer</button>
-                      </td>
+                     </td>
                     </tr>
             ))
           }

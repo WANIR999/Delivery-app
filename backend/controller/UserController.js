@@ -8,8 +8,7 @@ const confirmation=require('../router/middelwares/veirfy_email')
 const GetAllUsers= async(req,res)=>{
     const Users= await User.find()
      res.json(Users)
-   }
-
+}
    const CreateLiv=  async (req,res,next)=>{
     const {body}=req
     body.role="livreur"

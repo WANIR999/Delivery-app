@@ -7,7 +7,7 @@ import Foget_password from './components/Forget_password';
 import Reset_password from './components/Reset_password';
 import Error from './components/Errorpath';
 import Client from './components/Client';
-import Home from './components/home';
+import Home from './components/Home';
 import Plats from './components/PlatsPage';
 import Dashboard from './components/Dashboard';
 import Logout from './components/logout';
@@ -27,7 +27,6 @@ import SideBar from './components/SideBar';
 import Cart from './components/Cart';
 import header from './components/header';
 import Header from './components/header';
-
 
 
 
@@ -58,7 +57,7 @@ function App() {
         <Route element={<LivreurRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
-        <Route path='livreur/home' element={<Achat/>}/>
+        <Route path='livreur/Home' element={<Achat/>}/>
         </Route>
 
         </Route>
@@ -88,7 +87,7 @@ function App() {
         <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         <Route path='noauth' element={<Header/>}>
        <Route path='Home' element={<Home/>}/>
-       
+
 
        {/* <Route path='Footer' element={<Footer/>}/> */}
        </Route>
