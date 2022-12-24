@@ -6,7 +6,7 @@ const PlatsSchema= new mongoose.Schema({
    },
    categorie:{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'categories'
+        ref:'Categorie'
    },
    Composent:{
         type:String,

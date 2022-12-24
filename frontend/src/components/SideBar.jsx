@@ -19,7 +19,7 @@ const SideBar = () => {
          <Link to={homeurl}  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-house-fill"></i> Home</Link>
           <Link to="/auth/manager/users" className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-people-fill"></i> Users</Link>
           <Link to="/auth/manager/categorie/list"  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-journal-text"></i> Categories </Link>
-          <Link to=""  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-egg-fried"></i> plats</Link>
+          <Link to="/auth/manager/plat/list"  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-egg-fried"></i> plats</Link>
           <Link to="/auth/manager/payment/list"  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-credit-card-fill"></i> Payments</Link>
           <Link to=""  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-command"></i> Commands </Link>
           <Link to=""  className="btn navbar-brand text-white ms-3 hover" ><i class="bi bi-book-fill"></i> sells </Link>

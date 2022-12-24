@@ -35,7 +35,7 @@ import Header from './components/header';
 import Product from './components/Products';
 import { ToastContainer } from "react-toastify";
 import CheckoutSuccess from './components/CheckoutSuccess';
-
+import Platdisplay from './components/Platdisplay';
 
 
 function App() {
@@ -90,6 +90,7 @@ function App() {
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         <Route path='manager/payment/list' element={<PaymentList/>}/>
         <Route path='manager/plat/add' element={<Addplat/>}/>
+        <Route path='manager/plat/list' element={<Platdisplay/>}></Route>
         <Route path='manager/cart' element={<Cart/>}/>
         <Route path='checkout-success' element={<CheckoutSuccess/>}/>
         <Route path='manager/product' element={<Product/>}/>

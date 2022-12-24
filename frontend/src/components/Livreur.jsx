@@ -24,8 +24,9 @@ useEffect(()=>{
   }
 
   return (
-    <div  className="App ms-5" >
+    <div  className="App ms-5 mt-3">
            <h3>Plats à Livrés</h3>
+           <hr></hr>
 
     <div className="container shadow-lg d-flex flex-column justify-content-start tblw ms-5">
        <div className="bg-white mt-3">

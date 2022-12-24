@@ -25,10 +25,110 @@ const AjouterCommand=async(req,res)=>{
 
         })
         const saveCommand=await new_command.save();
-        try {
-          res.send(new_command)
-        } catch (error) {
-            res.send(error)
+        if(saveCommand){
+          res.json(saveCommand)
+        }else{
+              throw Error('Command not created')
+    
+        }
+      }else{
+      res.send("khassak tkon client")
+      }
+        
+}
+const UpdateCommand=async(req,res)=>{
+  const check_command=await command.find({_id:req.params.id})
+  .populate([
+    {
+      path: 'plat_id',  
+      model:plats,
+      select: { name:1,Prix:1}
+
+  },
+  {
+    path: 'Client_id', 
+    model:client,
+    select: { _id:1 }
+
+  },
+   
+  ])
+  if(check_command){
+    const Prix_plat=check_command[0].plat_id.Prix
+        const UpdateCommand=await command.findOneAndUpdate({_id:req.params.id},{$set:{Quantité:req.body.Quantité,Montant_total:req.body.Quantité*Prix_plat}})
+          if(UpdateCommand){
+           res.json(UpdateCommand)
+          }
+      }else{
+        res.send("error to update command")
+      }
+}
+
+const DeletCommand=async(req,res)=>{
+  const deletcommand=await command.findOneAndDelete({
+    _id:req.params.id
+  })
+  if(deletcommand){
+    res.send("suppresion sucees")
+  }else{
+    throw Error('problem to  suppresion command')
+  }
+}
+const AllCommand=async(req,res)=>{
+ const commands = await command.find()
+    .populate([
+      {
+        path: 'plat_id',  
+        model:plats,
+        select: { name:1,Prix:1}
+    },
+    {
+      path: 'Client_id', 
+      model:client,
+      select: { _id:1 }
+
+    },
+      {
+        path: 'Prix', 
+        model:plats,
+        select: { Prix:1}
+
+      }, 
+    ])
+    res.json(commands)
+     throw Error('problem to get all data')
+  
+}
+const commandClient=async(req,res)=>{  
+  if(!Storage('token')) throw Error('makynch token ')
+  const verify_token = jwt.verify(Storage('token') ,process.env.SECRET)
+    const CommandClient = await command.find({Client_id:verify_token.email._id})
+    .populate([
+      {
+        path: 'plat_id',
+        model:plats,
+        select: { name:1 ,Prix:1}
+      },
+      {
+        path: 'Client_id', 
+        model:client,
+        select: { _id:1 }
+
+      },
+      {
+        path:"achats_id",
+        model:achats,
+        select: { statu:1 }
+    
+    
+      }
+   
+    ])
+
+      if(CommandClient===null){
+        throw Error('Sorry vous avez pas de command') 
+      }else{
+        res.json(CommandClient)
 
       }
 }

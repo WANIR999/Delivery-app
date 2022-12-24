@@ -25,11 +25,14 @@ const ban= async (a)=>{
 }
 
   return (
-    <div className="App auth">
-        <div className="container d-flex flex-column justify-content-start tblw">
+    <div className="App auth ms-5 mt-3">
+        <h3>Categories</h3>
+        <hr></hr>
         <h2><Link to="/auth/manager/categorie/add"  className="text-secondary" ><i class="bi bi-plus-circle-fill"></i></Link></h2>
+
+        <div className="container shadow-lg d-flex flex-column justify-content-start tblw">
         <div className="tbl bg-white">
-        <table className="table ">
+        <table className="table table-bordered ">
         <thead>
             <tr>
             <th scope="col">label</th>

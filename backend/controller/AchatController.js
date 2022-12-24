@@ -8,7 +8,8 @@ const GetAllachats= async(req,res)=>{
       {
         path: 'command_id',
         model:Command
-      },      
+      }, 
+           
       {
         path: 'payment_id',  
         model:Payment
