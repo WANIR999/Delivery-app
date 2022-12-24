@@ -44,7 +44,7 @@ const Platdisplay = ()=> {
                     <tr key={e._id}>
                     <td>{e.image}</td>
                     <td>{e.name}</td>
-                    {/* <td>{e.categorie.label}</td> */}
+                    <td>{e.categorie.label}</td>
                     <td>{e.Composent}</td>
                     <td>{e.prix}</td>
                     </tr>

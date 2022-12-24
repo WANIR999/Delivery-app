@@ -9,7 +9,7 @@ const Addplat = () => {
     const [cat,setCat]=useState([])
     const [values, setValues] = useState({
         name: "",
-        composent: "",
+        Composent: "",
         prix: "",
         categorie:"",
       });
@@ -27,7 +27,7 @@ const Addplat = () => {
           },
           {
             id: 2,
-            name: "composent",
+            name: "Composent",
             type: "text",
             placeholder: "composents",
             errorMessage:
@@ -75,7 +75,7 @@ const Addplat = () => {
     const formData= new FormData();
     formData.append("name",values.name)
     formData.append("categorie",values.categorie)
-    formData.append("composent",values.composent)
+    formData.append("Composent",values.Composent)
     formData.append("file",file)
     formData.append("prix",values.prix)
     const test=await axios.post('http://localhost:8080/api/plat/create',formData)
