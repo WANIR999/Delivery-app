@@ -36,6 +36,7 @@ import Product from './components/Products';
 import { ToastContainer } from "react-toastify";
 import CheckoutSuccess from './components/CheckoutSuccess';
 import Platdisplay from './components/Platdisplay';
+import Accueil from './components/Accueil';
 
 
 function App() {
@@ -111,7 +112,8 @@ function App() {
         <Route path='forgetpassword' element={<Foget_password/>}/>
         <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         <Route path='noauth' element={<Header/>}>
-       <Route path='Home' element={<Home/>}/>
+        <Route path='Accueil' element={<Accueil/>}/>
+        <Route path='Home' element={<Home/>}/>
 
 
        {/* <Route path='Footer' element={<Footer/>}/> */}
