@@ -14,7 +14,6 @@ const Updateplat = () => {
         const plat= await axios.post('http://localhost:8080/api/auth/decrypt2',{token:token})
        setData(plat.data.data.data)
        }
-
      const inputs = [
         {
             id: 1,
