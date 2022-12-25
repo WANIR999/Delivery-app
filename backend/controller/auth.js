@@ -90,6 +90,12 @@ const decrpttoken= async (req,res)=>{
 //    req.data=tokn
    res.json(tokn.email)
 }
+const decrpttoken2= async (req,res)=>{
+   const {token}=req.body
+   const tokn=jwt.verify(token,process.env.SECRET)
+   req.data=tokn
+   res.json({data:req.data})
+}
 
 const encrpttoken= async (req,res)=>{
    const {data}=req.body
@@ -98,4 +104,4 @@ const encrpttoken= async (req,res)=>{
 }
 
 
-module.exports={register,login,resetpassword,logout,forgotpassword,switchto,decrpttoken,encrpttoken}
+module.exports={register,login,resetpassword,logout,forgotpassword,switchto,decrpttoken,encrpttoken,decrpttoken2}
