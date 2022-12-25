@@ -17,7 +17,14 @@ useEffect(()=>{
     data();
 },[])
 
-const ban= async (a)=>{
+ const update= async (e)=>{
+    e.preventDefault()
+    const plats=await axios.post('http://localhost:8080/api/categorie/getone',{id:e.target.value})
+    const user= await axios.post('http://localhost:8080/api/auth/encrpttoken',{data:plats.data.data})
+    navigate(`/auth/manager/categorie/update/${user.data.token}`)
+  }
+
+const remove= async (a)=>{
     a.preventDefault()
     const id=a.target.value
    const updates= await axios.post('http://localhost:8080/api/categorie/remove',{id})
@@ -34,8 +41,9 @@ const ban= async (a)=>{
         <table className="table table-bordered ">
         <thead>
             <tr>
-            <th scope="col">label</th>
-            <th scope="col">Remove it</th>
+            <th scope="col" className='text-center'>label</th>
+            <th scope="col" className='text-center'>update</th>
+            <th scope="col" className='text-center'>delete</th>
             </tr>
         </thead>
         <tbody >
@@ -43,9 +51,12 @@ const ban= async (a)=>{
             values.map((e)=>(
                
                     <tr key={e._id} >
-                    <td>{e.label}</td>
-                        <td>
-                        <button type="submit"  value={e._id} onClick={ban} className=" btn btn-danger minimize "></button>
+                    <td className='text-center'>{e.label}</td>
+                    <td className='text-center'>
+                        <button type="submit"  value={e._id} onClick={update}  className="btn btn-primary minimize"></button>
+                        </td>
+                        <td className='text-center'>
+                        <button type="submit"  value={e._id} onClick={remove} className=" btn btn-danger minimize "></button>
                         </td>
                     </tr>
                   

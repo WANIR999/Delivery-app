@@ -37,6 +37,7 @@ import { ToastContainer } from "react-toastify";
 import CheckoutSuccess from './components/CheckoutSuccess';
 import Platdisplay from './components/Platdisplay';
 import Updateplat from './components/PlatUpdate';
+import Catupdate from './components/Catupdate';
 
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
         <Route path='manager/plat/list' element={<Platdisplay/>}></Route>
         <Route path='client/home' element={<Plats/>}/>
         <Route path='manager/plat/update/:token' element={<Updateplat/>}/>
+        <Route path='manager/categorie/update/:token' element={<Catupdate/>}/>
         </Route>
         
         </Route>
