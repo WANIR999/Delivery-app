@@ -40,7 +40,7 @@ const Platdisplay = ()=> {
           {
            formData.map((e)=>(
                     <tr key={e._id}>
-                    <td><img src={'http://localhost:8080/public/${'e.image'}'}/></td>
+                    <td><img src={`http://localhost:8080/public/${e.image}`}/></td>
                     <td>{e.name}</td>
                     <td>{e.categorie.label}</td>
                     <td>{e.Composent}</td>
