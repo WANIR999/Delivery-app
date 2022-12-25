@@ -84,10 +84,10 @@ const Register = () => {
 
   return (
     <div className="App auth fill">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <h1>Register</h1>
         {errmsg ? (
-          <div class="alert alert-danger" role="alert">{errmsg}</div>
+          <div class="alert alert-danger mt-5 " role="alert">{errmsg}</div>
         ):""}
         {inputs.map((input) => (
           <FormInput

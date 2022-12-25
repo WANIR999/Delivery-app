@@ -1,7 +1,6 @@
 
 import { Outlet, Link } from "react-router-dom";
-import Login from "./Login";
-import Register from "./Register";
+
 const Header = () => {
   
   return (
@@ -13,8 +12,8 @@ const Header = () => {
           </Link>
         
         <div className="">
-          <Link to={Login}className="btn navbar-brand hover">Signin</Link>
-          <Link to={Register}className="btn navbar-brand hover">Signup</Link>
+          <Link to="/login" className="btn navbar-brand hover">Signin</Link>
+          <Link to="/register" className="btn navbar-brand hover">Signup</Link>
         </div>
         </div>
       </nav>

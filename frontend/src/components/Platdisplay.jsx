@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { useState,useEffect } from 'react'
 import axios from 'axios'
@@ -20,14 +19,13 @@ const Platdisplay = ()=> {
 
   return (
     <div>
-       <div className="App ms-5 mt-3">
-           <h3>Plats</h3>
-           <hr></hr>
-           <h2><Link to="/auth/manager/plat/add"  className="text-secondary" ><i class="bi bi-plus-circle-fill"></i></Link></h2>
-   
-      <div className="container shadow-lg d-flex flex-column justify-content-start tblw ms-5">
+       <div className=" ms-5 mt-3">
+           <h3 className="ms-5">Plats</h3>
+           <hr></hr>   
+      <div className="container shadow d-flex flex-column justify-content-start tblw ms-5">
+      <h2><Link to="/auth/manager/plat/add"  className="text-secondary" ><i class="bi bi-egg-fried"></i></Link></h2>
        <div className="bg-white mt-3">
-
+        
         <table className="table table-bordered">
         <thead>
             <tr>
@@ -42,7 +40,7 @@ const Platdisplay = ()=> {
           {
            formData.map((e)=>(
                     <tr key={e._id}>
-                    <td>{e.image}</td>
+                    <td><img src={'http://localhost:8080/public/${'e.image'}'}/></td>
                     <td>{e.name}</td>
                     <td>{e.categorie.label}</td>
                     <td>{e.Composent}</td>

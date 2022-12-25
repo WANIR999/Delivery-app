@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+
 import React from "react";
 import platsdata from './platsdata'
 import Plat from './PlatsPage'
 import Footer from "./footer";
-const style={"border-radius": "0px 400px 0px 0px ","height":"350px","width": "100%"}
 
+const style={"border-radius": "0px 400px 0px 0px ","height":"350px","width": "100%"}
 const Home = () => {
   
   return (
@@ -13,7 +13,7 @@ const Home = () => {
           <div className="col-md-8">
           <img src= "https://curlytales.com/wp-content/uploads/2020/03/online-food-2.jpg" style={style}></img>
           </div>
-          
+
          <div className="col-md-3 p-5 ">
            <h1>Get your deliveries on the road</h1>
          </div>
@@ -33,6 +33,8 @@ const Home = () => {
 <Footer />
 
                </div>
+       
+
   );
 };
 export default Home;

@@ -5,11 +5,12 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from 'axios'
 
 const Addplat = () => {
+    const navigate=useNavigate()
     const [file,setFile]=useState([])
     const [cat,setCat]=useState([])
     const [values, setValues] = useState({
         name: "",
-        Composent: "",
+        composent: "",
         prix: "",
         categorie:"",
       });
@@ -32,7 +33,7 @@ const Addplat = () => {
             placeholder: "composents",
             errorMessage:
               "composent area should be 3-16 characters and shouldn't include any special character!",
-            label: "composent",
+            label: "Composent",
             pattern: "^[A-Za-z0-9]{3,16}$",
             required: true,
           },
@@ -79,11 +80,12 @@ const Addplat = () => {
     formData.append("file",file)
     formData.append("prix",values.prix)
     const test=await axios.post('http://localhost:8080/api/plat/create',formData)
+    if(test.data.msg) navigate('/auth/manager/plat/list')
     console.log(test.data)
   };
   
   return (
-    <div className="App auth mx-auto">
+    <div className="App auth mx-auto mb-5">
       <form onSubmit={handleSubmit} enctype="multipart/form-data">
         <h1>add a plat</h1>
         {inputs.map((input) => (

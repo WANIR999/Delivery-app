@@ -24,7 +24,7 @@ const ban= async (a)=>{
 }
 
   return (
-    <div className="App auth ms-5 mt-5"> 
+    <div className=" auth ms-5 mt-5"> 
     <h3>Payments</h3>
     <hr></hr>
         <div className="container shadow-lg d-flex flex-column justify-content-start tblw">
