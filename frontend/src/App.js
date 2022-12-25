@@ -35,8 +35,7 @@ import Header from './components/header';
 import Product from './components/Products';
 import { ToastContainer } from "react-toastify";
 import CheckoutSuccess from './components/CheckoutSuccess';
-
-
+import Platdisplay from './components/Platdisplay';
 
 
 function App() {
@@ -76,7 +75,7 @@ function App() {
         <Route element={<LivreurRoutes/>}>
 
         <Route path='auth' element={<Navbar/>}>
-        <Route path='livreur/home' element={<Achat/>}/>
+        <Route path='livreur/Home' element={<Achat/>}/>
         </Route>
 
         </Route>
@@ -91,6 +90,7 @@ function App() {
         <Route path='manager/categorie/list' element={<CategoriesList/>}/>
         <Route path='manager/payment/list' element={<PaymentList/>}/>
         <Route path='manager/plat/add' element={<Addplat/>}/>
+        <Route path='manager/plat/list' element={<Platdisplay/>}></Route>
         <Route path='manager/cart' element={<Cart/>}/>
         <Route path='checkout-success' element={<CheckoutSuccess/>}/>
         <Route path='manager/product' element={<Product/>}/>
@@ -112,7 +112,7 @@ function App() {
         <Route path='forget_password_confirmation/:token' element={<Forget_pass_confirm/>}/>
         <Route path='noauth' element={<Header/>}>
        <Route path='Home' element={<Home/>}/>
-       
+
 
        {/* <Route path='Footer' element={<Footer/>}/> */}
        </Route>

@@ -20,6 +20,7 @@ export default function PlatsPage({plat}) {
       <div className='w-100 m-1'>
           <p>{plat.price}</p>
         </div>
+
        <div className='w-100 m-1'>
           <button type='submit' style={{width:"150px"}}>Add to Card</button>
         </div>

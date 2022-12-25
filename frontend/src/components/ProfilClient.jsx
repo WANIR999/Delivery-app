@@ -38,7 +38,7 @@ const ProfilClient=(req,res)=>{
     }  
 return(
 <div>
-    <div className="card m-4 p-4 w-100">
+    <div className="card m-4 p-4 w-100" style={{margin:"100px"}}>
         <h5 className="card-header">Profil</h5>
         <div className="card-body">
             <div className="mb-1">

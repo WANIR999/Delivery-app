@@ -2,22 +2,15 @@ const mongoose=require("mongoose")
 const CommandsSchema= new mongoose.Schema({
      plat_id:{
           type:mongoose.Schema.Types.ObjectId,
-          ref:'plats',
-          required:true
+          ref:'plats'
      },
      Client_id:{
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'user',
-          required:true
-
+          ref: 'user'
      },
      Livreur_id:{
-          // type: mongoose.Schema.Types.ObjectId, 
-          // ref: 'user',
-          type:String,
-          default:"Aucun livreur pour l'instant" 
-
-
+          type: mongoose.Schema.Types.ObjectId, 
+          ref: 'user'
      },
      Quantité:{
           type:Number,

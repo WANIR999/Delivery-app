@@ -8,6 +8,7 @@ const upload= require('../middelwares/uploads')
 const fs= require("fs")
 
 router.get('/allplats',GetAllplats)
+
 router.post('/Create',upload.single('file'),Createplat)
 
 router.use(errorHandler)

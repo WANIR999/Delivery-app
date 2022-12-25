@@ -24,7 +24,7 @@ const Allcommands=()=>{
    },[])
 
 return(
-    <div className="  bg-white">
+    <div className="bg-white">
         <div className="d-flex">
             <div className=" p-1 w-100" style={over} >
                 {/* col sidebar */}
