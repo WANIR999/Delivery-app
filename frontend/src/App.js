@@ -84,6 +84,7 @@ function App() {
         <Route path='checkout-success' element={<CheckoutSuccess/>}/>
         <Route path='manager/product' element={<Product/>}/>
         <Route path='client/home' element={<Plats/>}/>
+        <Route path='manager/test/home' element={<Achat/>}/>
         </Route>
         
         </Route>
