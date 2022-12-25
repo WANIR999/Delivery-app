@@ -2,6 +2,7 @@ const Plat= require('../model/Plats')
 const Categorie = require('../model/Categorie')
 const { findById } = require('../model/CommandModel')
 const fs= require('fs')
+const {unlink}=require('node:fs/promises')
 const GetAllplats= async(req,res)=>{
   const plats= await Plat.find()
     
@@ -52,11 +53,8 @@ const updateplat= async (req,res)=>{
 
 const deleteplat= async (req,res)=>{
   const {id}= req.body
-  const palt= await Plat.findOne({_id:id})
-  const removedimage= await unlink(`../public/${palt.image}`);
-if(!removedimage) throw Error('image not removed')
-  // const plat= await Plat.findOneAndDelete({_id:id})
-  // if(!plat) throw Error('plat not removed')
+ const plat= await Plat.findOneAndDelete({_id:id})
+ if(!plat) throw Error('plat not removed')
   // console.log(id)
    res.json({
     msg:"deleted",
