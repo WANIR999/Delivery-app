@@ -20,6 +20,8 @@ router.post('/forgetconfirmdata',verfemail.forgetconfirmdata)
 
 router.get('/allUsers',user.GetAllUsers)
 router.post('/decrypt',auth.decrpttoken)
+router.post('/decrypt2',auth.decrpttoken2)
+router.post('/encrpttoken',auth.encrpttoken)
 
 
 router.post('/switchtoliv',verification.verify(["manager"]),auth.switchto)

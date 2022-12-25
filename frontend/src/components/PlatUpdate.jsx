@@ -1,25 +1,27 @@
 import { useState , useEffect } from "react";
 import "../App.css";
 import FormInput from "./Forminput";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from 'axios'
 
-const Addplat = () => {
+const Updateplat = () => {
     const navigate=useNavigate()
+    const {token}=useParams()
     const [file,setFile]=useState([])
     const [cat,setCat]=useState([])
-    const [values, setValues] = useState({
-        name: "",
-        composent: "",
-        prix: "",
-        categorie:"",
-      });
-    const inputs = [
+    const [data,setData]=useState([])
+    const getdata= async ()=>{
+        const plat= await axios.post('http://localhost:8080/api/auth/decrypt2',{token:token})
+       setData(plat.data.data.data)
+       }
+
+     const inputs = [
         {
             id: 1,
             name: "name",
             type: "text",
-            placeholder: "name",
+            placeholder:"plat name",
+            value:data.name,
             errorMessage:
               "Username should be 3-16 characters and shouldn't include any special character!",
             label: "plat name",
@@ -30,11 +32,12 @@ const Addplat = () => {
             id: 2,
             name: "Composent",
             type: "text",
-            placeholder: "composents",
+            placeholder: "composant",
+            value:data.Composent,
             errorMessage:
               "composent area should be 3-16 characters and shouldn't include any special character!",
             label: "Composent",
-            pattern: " /^[a-zA-Z][a-zA-Z\\s]+{3,16}$",
+            pattern: "/^[a-zA-Z][a-zA-Z\\s]+{3,16}$",
             required: true,
           },
           {
@@ -46,24 +49,27 @@ const Addplat = () => {
               "price area should be 3-10 characters and shouldn't include any special character!",
             label: "price",
             pattern: "^[0-9]{1,10}$",
+            value:data.prix,
             required: true,
           },
       ];
+     
 
     const getCat= async ()=>{
         const users= await axios.get('http://localhost:8080/api/categorie/allcategories')
        setCat(users.data)
-       console.log(users.data)
        }
     
     useEffect(()=>{
         getCat();
+        getdata();
     },[])
-    
+
 
     const onChange = (e) => {
-        setValues({ ...values, [e.target.name]: e.target.value });
+        setData({...data, [e.target.name]: e.target.value });
       };
+      console.log(data)
 
    const handlechange = async (e) => {
     e.preventDefault();
@@ -74,14 +80,15 @@ const Addplat = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData= new FormData();
-    formData.append("name",values.name)
-    formData.append("categorie",values.categorie)
-    formData.append("Composent",values.Composent)
+    formData.append("name",data.name)
+    formData.append("id",data._id)
+    formData.append("categorie",data.categorie)
+    formData.append("Composent",data.Composent)
     formData.append("file",file)
-    formData.append("prix",values.prix)
-    const test=await axios.post('http://localhost:8080/api/plat/create',formData)
+    formData.append("oldfile",data.image)
+    formData.append("prix",data.prix)
+    const test=await axios.post('http://localhost:8080/api/plat/update',formData)
     if(test.data.msg) navigate('/auth/manager/plat/list')
-    console.log(test.data)
   };
   
   return (
@@ -92,7 +99,6 @@ const Addplat = () => {
           <FormInput
             key={input.id}
             {...input}
-            value={values[input.name]}
             onChange={onChange}
           />
         ))}
@@ -104,10 +110,10 @@ const Addplat = () => {
           />
           <label>categorie</label>
           <select name="categorie" class="form-select" aria-label="Default select example" onChange={onChange}>
-            <option selected>none</option>
+            <option >none</option>
             {
                 cat.map(c=>(
-                    <option value={c._id}>{c.label}</option>
+                    <option value={c._id} selected={c._id==data.categorie? true: false}>{c.label}</option>
                 ))
             }
            
@@ -118,4 +124,4 @@ const Addplat = () => {
   );
 };
 
-export default Addplat;
+export default Updateplat;
