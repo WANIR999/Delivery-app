@@ -1,7 +1,12 @@
 const Plat= require('../model/Plats')
-
+const Categorie = require('../model/Categorie')
 const GetAllplats= async(req,res)=>{
-    const plats= await Plat.find()
+  const plats= await Plat.find()
+    
+    .populate({
+      path:'categorie',
+      model:Categorie
+    })
      res.json(plats)
    }
 

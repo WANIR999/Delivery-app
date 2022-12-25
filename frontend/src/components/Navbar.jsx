@@ -23,7 +23,7 @@ const Navbar = () => {
   const reseturl = "/auth/" + role + "/resetpassword";
   return (
     <div className="auth">
-      <nav className="navbar navbar-dark bg-dark mb-3">
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           <Link to={homeurl} className="btn navbar-brand hover">
             marhaba

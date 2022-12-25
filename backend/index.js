@@ -15,6 +15,8 @@ const products = require('./products')
 app.use(cors()) 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+app.use('/public',express.static('public'))
+
 app.use('/api/auth',auth)
 app.use('/api/command',commands)
 app.use('/api/user',users)

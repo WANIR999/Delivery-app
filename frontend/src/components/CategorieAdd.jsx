@@ -45,7 +45,7 @@ const CatAdd = () => {
   };
 
   return (
-    <div className="App auth mx-auto">
+    <div className="App auth mx-auto justify-content-center mb-5">
       <form onSubmit={handleSubmit}>
         <h1>New categorie</h1>
         {errmsg ? (

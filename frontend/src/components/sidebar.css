@@ -1,9 +1,10 @@
 .sidebox{
-    width: 170px;
+    width: 200px;
     height: 550px;
-    margin-left:1%;
-    border-radius: 20px;
-    background-color: #455d7a;
+    /* margin-left:1%; */
+    /* border-radius: 20px; */
+    background-color: #000000;
+    height: 100vh;
 }
 
 .hover:hover {
