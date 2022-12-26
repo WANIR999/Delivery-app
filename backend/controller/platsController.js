@@ -1,6 +1,7 @@
 const Plat= require('../model/Plats')
 const Categorie = require('../model/Categorie')
 const GetAllplats= async(req,res)=>{
+  
   const plats= await Plat.find()
     
     .populate({
@@ -21,6 +22,5 @@ const Createplat= async (req,res)=>{
   })
   console.log(body)
 }
-
 
    module.exports= {GetAllplats,Createplat}

@@ -4,8 +4,7 @@ export default function PlatsPage({plat}) {
   
   return (
     <div className='container p-1'>
-    <div style={{margin:'15px'}} className='shadow-lg p-3 bg-white rounded-3'>
-    
+    <div style={{margin:'15px'}} className='shadow-lg p-3 bg-white rounded-3'>  
       <h3>{plat.name}</h3>
       <img src={`http://localhost:8080/public/${plat.image}`} className='img-fluid rounded' style={{height:'150px' , width:'400px'}} />
        <div className='flex-container'>

@@ -1,4 +1,3 @@
-
 import { Outlet, Link } from "react-router-dom";
 
 const Header = () => {
@@ -7,7 +6,7 @@ const Header = () => {
     <div>
       <nav className="navbar navbar-dark bg-dark">
         <div className="container-fluid d-flex align-items-center">
-          <Link to="" className="btn navbar-brand hover">
+          <Link to="/noauth/Accueil" className="btn navbar-brand hover">
             marhaba
           </Link>
         
